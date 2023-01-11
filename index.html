@@ -15,24 +15,64 @@
 
 </head>
 <body>
+    <!-- div for initial movie prompt -->
+    <div class = "movie-prompt">
+        <h1>Movies and Drinks</h1>
+        <div class = "movie-prompt-box">
+            <p>Want to pick a movie to watch?</p>
+            <button class = "movie-confirm">Yes!</button>
+            <button class = "movie-cancel">I have a movie idea</button>
+        </div>
+    </div>
+    <!-- div for movie selection box -->
     <div class = "movie" >
         <h2>Movie Search</h2>
-        <div class = dropdown>
-            <button class = genredropbtn>Genre</button>
-            <div class = genre-content>
+        <div class = "dropdown">
+            <button class = "genredropbtn">Genre</button>
+            <div class = "genre-content">
             </div>
         </div>
         <button>Go</button>
     </div>
+    <!-- Cards with movie picture and info -->
+    <div class = "movie-card1">
+        <img class = "movie-image1">
+        <h3 class = "movie-name1"></h3>
+        <p class = "movie-info1"></p>
+    </div>
+    <div class = "movie-card2">
+        <img class = "movie-image2">
+        <h3 class = "movie-name2"></h3>
+        <p class = "movie-info2"></p>
+    </div>
+    <div class = "movie-card3">
+        <img class = "movie-image3">
+        <h3 class = "movie-name3"></h3>
+        <p class = "movie-info3"></p>
+    </div>
+    <!-- div for initial drink prompt -->
+        <div class = "drink-prompt-box">
+            <p>Drinks could make the night</p>
+            <button class = "drink-confirm">Would love a drink idea!</button>
+            <button class = "drink-cancel">No Thanks</button>
+        </div>
+    <!-- div for drink selection box -->
     <div class = "drink">
         <h2>Drink Search</h2>
-        <div class = dropdown>
-            <button class = drinkdropbtn>Genre</button>
-            <div class = drink-content>
+        <div class = "dropdown">
+            <button class = "drinkdropbtn">Pick your poison</button>
+            <div class = "drink-content">
             </div>
         </div>
         <button>Go</button>
     </div>
+     <!-- Cards with movie picture and info -->
+        <div class = "drink-card">
+            <img class = "drink-image">
+            <h3 class = "drink-name"></h3>
+            <p class = "drink-ingredients"></p>
+            <p class = "drink-instructions"></p>
+        </div>
     <!-- materialize script -->
     <script src="./Assets/materialize/js/materialize.js"></script>
     <script src="javascript.js"></script>
