@@ -8,6 +8,9 @@ var alcohol = ['Gin', 'Tequila', 'Whiskey', 'Scotch', 'Vodka', 'Rum' ]
 
 function getMovieApi() {
     var requestUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US';
+
+
+    
   
     fetch(requestUrl)
       .then(function (response) {
