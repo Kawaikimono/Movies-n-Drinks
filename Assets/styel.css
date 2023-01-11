@@ -1,0 +1,11 @@
+:root{
+    --backgroundcolor: black;
+    --divbackgroundcolor:#757575;
+    --fontcolor:white;
+
+}
+
+*{
+    background-color: var(--backgroundcolor);
+    color:var(--fontcolor)
+}
