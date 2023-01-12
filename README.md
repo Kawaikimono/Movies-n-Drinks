@@ -5,8 +5,8 @@ This site can randomly generate movies and drinks!
 
 ## User Story
 AS AN user with curiosity 
-I WANT to find random movies and drinks to go along with
-SO THAT I can choose movies and drinks without being indecisive
+I WANT to find random movies and random drinks to go along with
+SO THAT I don't have to plan out ideas
 
 ## Features
 
