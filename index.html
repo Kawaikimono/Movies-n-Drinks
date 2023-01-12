@@ -1,81 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies-n-Drinks</title>
     <!-- materialize link -->
-    <link rel="stylesheet" href="./Assets/materialize/css/materialize.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <!-- animation link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link rel="stylesheet" href="./Assets/styel.css">
-
-
-</head>
-<body>
-    <!-- div for initial movie prompt -->
-    <div class = "movie-prompt">
-        <h1>Movies and Drinks</h1>
-        <div class = "movie-prompt-box">
-            <p>Want to pick a movie to watch?</p>
-            <button class = "movie-confirm">Yes!</button>
-            <button class = "movie-cancel">I have a movie idea</button>
-        </div>
-    </div>
-    <!-- div for movie selection box -->
-    <div class = "movie" >
-        <h2>Movie Search</h2>
-        <div class = "dropdown">
-            <Select class = "genredropbtn">Genre</Select>
-            <div class = "genre-content">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./Assets/styel.css" />
+  </head>
+  <body>
+    <div class="main-space">
+      <!-- div for initial movie prompt -->
+      <div class="animate__animated animate__fadeIn animate__delay-1s" id="movie-prompt">
+        <div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text movie-prompt-box">
+              <span class="card-title"><strong>Movies First</strong></span>
+              <p>Want to pick a movie to watch?</p>
             </div>
-        </div>
-        <button>Go</button>
-    </div>
-    <!-- Cards with movie picture and info -->
-    <div class = "movie-card1">
-        <img class = "movie-image1">
-        <h3 class = "movie-name1"></h3>
-        <p class = "movie-info1"></p>
-    </div>
-    <div class = "movie-card2">
-        <img class = "movie-image2">
-        <h3 class = "movie-name2"></h3>
-        <p class = "movie-info2"></p>
-    </div>
-    <div class = "movie-card3">
-        <img class = "movie-image3">
-        <h3 class = "movie-name3"></h3>
-        <p class = "movie-info3"></p>
-    </div>
-    <!-- div for initial drink prompt -->
-        <div class = "drink-prompt-box">
-            <p>Drinks could make the night</p>
-            <button class = "drink-confirm">Would love a drink idea!</button>
-            <button class = "drink-cancel">No Thanks</button>
-        </div>
-    <!-- div for drink selection box -->
-    <div class = "drink">
-        <h2>Drink Search</h2>
-        <div class = "dropdown">
-            <button class = "drinkdropbtn">Pick your poison</button>
-            <div class = "drink-content">
+            <div class="card-action">
+              <button class="movie-confirm btn">Yes!</button>
+              <button class="movie-cancel btn">I have a movie idea</button>
             </div>
+          </div>
         </div>
-        <button>Go</button>
+      </div>
+      <!-- div for movie selection -->
+      <div class="animate__animated" id="movie-search">
+        <div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title"><strong>Search the movie</strong></span>
+              <p>What kind of movie do you want?</p>
+              <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Action 🤼‍♂️"</option>
+                <option value="2">Adventure 🏕</option>
+                <option value="3">Comedy 🤹🏽</option>
+                <option value="4">Horror 🤡</option>
+                <option value="5">Mystery 🧿</option>
+                <option value="6">Romance 💖</option>
+                <option value="7">Thriller 🧟</option>
+              </select>
+            </div>
+            <div class="card-action">
+              <button class="btn" id="movieactionbtn">Action 🎬</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- div for drink prompt box -->
+      <div class="animate__animated" id="drink-prompt">
+        <div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text movie-prompt-box">
+              <span class="card-title"><strong>Moive is ready</strong></span>
+              <p>A drink would make the night.</p>
+            </div>
+            <div class="card-action">
+              <button class="drink-confirm btn">Yes!</button>
+              <button class="drinkcancel btn">
+                No, I'm boycoting alcohol.
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- div for drink selection box -->
+      <div class="animate__animated" id="drink-search">
+        <div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text" id="drink-search">
+              <span class="card-title"><strong>Search a drink</strong></span>
+              <p>What kind of alcohol do you prefer?</p>
+              <select class="drink-content">
+                <option value="" disabled selected>Pick your poison</option>
+                <option value="1">Gin</option>
+                <option value="2">Vodka</option>
+                <option value="3">Whisky</option>
+                <option value="4">Tequila</option>
+                <option value="5">Rum</option>
+                <option value="6">Scotch</option>
+                <option value="7">Bourbon</option>
+                <option value="8">Mezcal</option>
+              </select>
+            </div>
+            <div class="card-action">
+              <button class="drinkdropbtn btn">Mix away</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards with movie picture and info -->
+      <div class="drink-card">
+        <img class="drink-image" />
+        <h3 class="drink-name"></h3>
+        <p class="drink-ingredients"></p>
+        <p class="drink-instructions"></p>
+      </div>
     </div>
-     <!-- Cards with movie picture and info -->
-        <div class = "drink-card">
-            <img class = "drink-image">
-            <h3 class = "drink-name"></h3>
-            <p class = "drink-ingredients"></p>
-            <p class = "drink-instructions"></p>
-        </div>
+
     <!-- materialize script -->
-    <script src="./Assets/materialize/js/materialize.js"></script>
     <script src="javascript.js"></script>
-</body>
+    <script src="./Assets/css-script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>

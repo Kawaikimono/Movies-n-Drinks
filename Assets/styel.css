@@ -6,6 +6,24 @@
 }
 
 *{
-    background-color: var(--backgroundcolor);
-    color:var(--fontcolor)
+    margin: 0;
+    padding:0;
+}
+
+.main-space{
+    justify-content: center;
+    align-items: center;
+}
+
+.select-dropdown{
+    color:white;
+}
+
+
+#movie-search{
+    padding-bottom: 10px;
+}
+
+#drink-search{
+    padding-bottom: 10px;
 }
