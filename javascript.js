@@ -1,8 +1,7 @@
-// var selectAlcoholType = document.getElementbyId(drinkdropbtn)
+
 // var selectGenreSelected = document.getElementbyId(genredropbtn)
 
 var movieactionbtn = document.getElementById("movieactionbtn")
-var drinkdropbtn = document.getElementById("drinkdropbtn")
 var drinkId = 0
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
@@ -66,6 +65,27 @@ var listOfDrinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=
           .then(theDrink) 
           }
 
-       getDrinkApi()
+
         movieactionbtn.addEventListener("click", getMovieApi)
-        // drinkdropbtn.addEventListener("click", getDrinkApi)
+
+var getDrinkBtn = document.querySelector(".drinkdropbtn");
+
+        getDrinkBtn.addEventListener("click", function() {
+          // getDrinkApi()
+          var drinkImageLoc = document.querySelector("#drink-img");
+          var drinkNameLoc = document.querySelector("#drink-title");
+          var drinkIngrLoc = document.querySelector("#Ingredient1");
+          var drinkRecipeLoc = document.querySelector("#Drink-Instruction");
+          drinkImage.setAttribute("src", drink.drinks[0].strDrinkThumb)
+          drinkNameLoc.textContent(drink.drinks[0].strDrink);
+          drinkRecipeLoc.textContent(drink.drinks[0].strInstructions);
+          for (var = i; i < drink.drinks[0].strIngredient; i++) {
+            var drinkMeasure = drink.drinks[0].strMeasure + i+1;
+            var drinkIngr = drink.drinks[0].strIngredient + i+1;
+            drinkMeasure.append(drinkIngr);
+            var ingredientList = document.createElement("li");
+            ingredientList.textContent(drinkMeasure);
+            drinkIngrLoc = ingredientList;
+          };
+        });
+
