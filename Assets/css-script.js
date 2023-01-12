@@ -10,11 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
 //hide all the other tabs
 var moviePromptDiv = document.querySelector("#movie-prompt");
 var movieSearchDiv = document.querySelector("#movie-search");
-var drinkPromptDiv = document.querySelector("#drink-prompt")
-var drinkSearchDiv = document.querySelector("#drink-search")
+var drinkPromptDiv = document.querySelector("#drink-prompt");
+var drinkSearchDiv = document.querySelector("#drink-search");
+var drinkCardDiv = document.querySelector("#drink-card");
 movieSearchDiv.hidden = true;
 drinkSearchDiv.hidden = true;
 drinkPromptDiv.hidden = true;
+// drinkCardDiv.hidden = true;
+
 
 //movie prompt yes button to show search movie div
 var moviePromptYesBtn = document.querySelector(".movie-confirm");
@@ -41,3 +44,5 @@ function promptdrink() {
       drinkPromptDiv.hidden = false;
     }
   }
+
+//drink search btn to show drink card
