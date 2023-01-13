@@ -17,6 +17,7 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--backgroundcolor);
+    height:100%;
 
 }
 
@@ -45,9 +46,8 @@
     display: flex;
 }
 
-#movie-poster-1{
-    width:20%;
-    padding:20px;
+#movie-poster{
+    height:100%;
 }
 
 .movieandbutton{
@@ -60,17 +60,13 @@
 
 .movieinfo{
     text-align: left;
-}
-
-.movie-trailer{
-    width: 200%;
-    margin-top:15px;
+    width: 60%;
 }
 
 .video-div{
     display:flex;
     align-items: center;
-    width:500px;
+    padding-right:200px;
 }
 
 .movie-div{
@@ -88,14 +84,12 @@
     margin-right: auto;
 }
 
-
 .display{
     height: max-content;
     align-items: center;
     justify-content: space-around;
 }
 
-#movie-collection-3{
-    background-color: var(--backgroundcolor);
+#movie-poster{
+    padding-left: 200px;
 }
-

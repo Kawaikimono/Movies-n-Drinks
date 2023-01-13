@@ -5,15 +5,13 @@ var drinkId = 0;
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
 
-var movieTitle = document.querySelector ("#movie-title");
-var movieSummary = document.querySelector ("#movie-intro");
-var movieImageEl = document.querySelector("#movie-poster");
-var movieGenre = document.querySelector("#movie-genre");
-console.log(movieImageEl);
-
-var movieTitle = "";
-var movieSummary = "";
-
+var movieTitle = document.querySelectorAll("#movie-title");
+var movieSummary = document.querySelectorAll("#movie-intro");
+console.log(movieSummary)
+var movieImageEl = document.querySelectorAll("#movie-poster");
+var movieGenre = document.querySelectorAll("#movie-genre");
+var movieTitle;
+var movieSummary;
 
 var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
@@ -21,29 +19,21 @@ var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 function getMovieApi() {
   console.log(genreID.value);
   fetch(movieUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (let i = 0; i < 3; i++) {
+        var randomMovie =data.results[Math.floor(Math.random() * data.results.length)];
+        movieTitle[i].textContent = randomMovie.title;
+        movieSummary[i].textContent = randomMovie.overview;
+        var randomPosterLink = moviePosterURL + randomMovie.poster_path;
+        movieImageEl[i].src = randomPosterLink;
+        movieGenre[i].textContent = genreID.value;
 
-  .then(function (response) {
-    return response.json();
-    
-  }) 
-  .then(function (data) {
-    for (let i = 0; i < 3; i++) {
-
-    var randomMovie = data.results[Math.floor(Math.random()*data.results.length)]
-    console.log(randomMovie.title)
-    console.log(randomMovie.overview)
-    console.log(randomMovie.poster_path)
-    console.log(moviePosterURL+randomMovie.poster_path)
-    movieTitle.textContent = randomMovie.title
-    movieSummary.textContent = randomMovie.overview
-    var randomPosterLink = moviePosterURL+randomMovie.poster_path
-    movieImageEl.src = randomPosterLink
-    movieGenre.textContent = genreID
-    }
-
-
-      })
-      };
+      }
+    });
+}
 
 var listOfDrinksUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=gin";
@@ -102,7 +92,7 @@ function printDrink(drink) {
     if (ingredient == null) {
       return;
     }
-    if (measure ==null) {
+    if (measure == null) {
       return;
     }
     var ingredientList = document.createElement("li");
@@ -110,4 +100,3 @@ function printDrink(drink) {
     drinkIngrLoc.append(ingredientList);
   }
 }
-

@@ -17,7 +17,7 @@ var drinkSearchDiv = document.querySelector("#drink-search");
 var drinkCardDiv = document.querySelector("#drink-card");
 
 movieSearchDiv.hidden = true;
-movieSearchResultDiv.hidden = true;
+movieSearchResultDiv.style.opacity = "0" 
 drinkPromptDiv.hidden = true;
 drinkSearchDiv.hidden = true;
 drinkCardDiv.hidden = true;
@@ -46,9 +46,10 @@ movieActionBtn.addEventListener("click", moviesearch);
 function moviesearch() {
   if (event.target.matches("button")) {
     movieSearchDiv.classList.add("animate__fadeOut");
+    movieSearchResultDiv.style.opacity = "1";
     movieSearchResultDiv.classList.add("animate__fadeIn");
-    movieSearchResultDiv.hidden = false;
-  }
+
+}
 }
 
 //select movie to prompt drink
@@ -105,4 +106,4 @@ document.addEventListener("DOMContentLoaded", function () {
     indicators: true,
     numVisible: 5,
   });
-});
+})
