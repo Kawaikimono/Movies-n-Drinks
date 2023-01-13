@@ -1,7 +1,7 @@
 var movieactionbtn = document.getElementById("movieactionbtn");
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
-
+var drink;
 var movieTitle = document.querySelector("#movie-title");
 var movieSummary = document.querySelector("#movie-intro");
 var movieImageEl = document.querySelector("#movie-poster");
@@ -48,7 +48,7 @@ function theDrink(data) {
     })
 
     .then(function (res) {
-      var drink = res.drinks[0];
+      drink = res.drinks[0];
       console.log(drink);
       var drinkName = drink.strDrink;
       console.log(drinkName);
@@ -75,8 +75,6 @@ function getDrinkApi() {
 movieactionbtn.addEventListener("click", getMovieApi);
 
 var getDrinkBtn = document.querySelector(".drinkbtn");
-
-getDrinkApi();
 
 function printDrink(drink) {
   var drinkImageLoc = document.querySelector("#drink-img");
@@ -110,12 +108,12 @@ getDrinkBtn.addEventListener("click", function () {
   var drinkNameLoc = document.querySelector("#drink-title");
   var drinkIngrLoc = document.querySelector("#Ingredients");
   var drinkRecipeLoc = document.querySelector("#Drink-Instruction");
-  drinkImageLoc.setAttribute("src", drink.drinks[0].strDrinkThumb);
-  drinkNameLoc.textContent(drink.drinks[0].strDrink);
-  drinkRecipeLoc.textContent(drink.drinks[0].strInstructions);
-  for (var i = 0; i < drink.drinks[0].strIngredient; i++) {
-    var drinkMeasure = drink.drinks[0].strMeasure + i + 1;
-    var drinkIngr = drink.drinks[0].strIngredient + i + 1;
+  drinkImageLoc.setAttribute("src", drink.strDrinkThumb);
+  drinkNameLoc.textContent(drink.strDrink);
+  drinkRecipeLoc.textContent(drink.strInstructions);
+  for (var i = 0; i < drink.strIngredient; i++) {
+    var drinkMeasure = drink.strMeasure + i + 1;
+    var drinkIngr = drink.strIngredient + i + 1;
     drinkMeasure.append(drinkIngr);
     var ingredientList = document.createElement("li");
     ingredientList.textContent(drinkMeasure);
