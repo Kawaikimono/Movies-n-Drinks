@@ -10,9 +10,14 @@
     padding:0;
 }
 
+
+
 .main-space{
-    justify-content: center;
+    display:block;
+    flex-direction: column;
     align-items: center;
+    background-color: var(--backgroundcolor);
+
 }
 
 .select-dropdown{
@@ -26,4 +31,43 @@
 
 #drink-search{
     padding-bottom: 10px;
+}
+
+#movie-1{
+    display: flex;
+}
+
+#movie-poster-1{
+    width:20%;
+    padding:20px;
+}
+
+.movieandbutton{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;;
+}
+
+.movieinfo{
+    text-align: left;
+}
+
+.movie-trailer{
+    width: 200%;
+    margin-top:15px;
+}
+
+.video-div{
+    display:flex;
+    align-items: center;
+    width:500px;
+}
+
+.movie-div{
+    width:max-content;
+    justify-content: center; 
+    align-items: stretch;
+    padding-bottom: 15px;
 }
