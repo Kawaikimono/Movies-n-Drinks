@@ -1,12 +1,14 @@
-
 // var selectGenreSelected = document.getElementbyId(genredropbtn)
 
 var movieactionbtn = document.getElementById("movieactionbtn")
 var drinkId = 0
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
-var movieTitle = ""
-var movieSummary = ""
+var movieTitle = document.querySelector ("#movie-title");
+var movieSummary = document.querySelector ("#movie-intro");
+var movieImageEl = document.querySelector("#movie-poster");
+var movieGenre = document.querySelector("#movie-genre");
+console.log(movieImageEl);
 
 var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
 var moviePosterURL = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
@@ -20,15 +22,22 @@ function getMovieApi() {
     
   }) 
   .then(function (data) {
+    for (let i = 0; i < 3; i++) {
+
     var randomMovie = data.results[Math.floor(Math.random()*data.results.length)]
     console.log(randomMovie.title)
     console.log(randomMovie.overview)
     console.log(randomMovie.poster_path)
     console.log(moviePosterURL+randomMovie.poster_path)
-    movieTitle = randomMovie.title
-    movieSummary = randomMovie.overview
-    
-        // render movieTitle & movieSummary to page. Static
+    movieTitle.textContent = randomMovie.title
+    movieSummary.textContent = randomMovie.overview
+    var randomPosterLink = moviePosterURL+randomMovie.poster_path
+    movieImageEl.src = randomPosterLink
+    movieGenre.textContent = genreID
+    }
+    // render movieTitle & movieSummary to page. Static
+
+
       })
       };
 
@@ -68,7 +77,7 @@ var listOfDrinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=
 
         movieactionbtn.addEventListener("click", getMovieApi)
 
-var getDrinkBtn = document.querySelector(".drinkdropbtn");
+var getDrinkBtn = document.querySelector(".drinkbtn");
 
         getDrinkBtn.addEventListener("click", function() {
           // getDrinkApi()
@@ -79,7 +88,7 @@ var getDrinkBtn = document.querySelector(".drinkdropbtn");
           drinkImage.setAttribute("src", drink.drinks[0].strDrinkThumb)
           drinkNameLoc.textContent(drink.drinks[0].strDrink);
           drinkRecipeLoc.textContent(drink.drinks[0].strInstructions);
-          for (var = i; i < drink.drinks[0].strIngredient; i++) {
+          for (var i = 0 ; i < drink.drinks[0].strIngredient; i++) {
             var drinkMeasure = drink.drinks[0].strMeasure + i+1;
             var drinkIngr = drink.drinks[0].strIngredient + i+1;
             drinkMeasure.append(drinkIngr);
@@ -88,4 +97,3 @@ var getDrinkBtn = document.querySelector(".drinkdropbtn");
             drinkIngrLoc = ingredientList;
           };
         });
-
