@@ -21,9 +21,8 @@
     <div class="main-space">
       <!-- div for initial movie prompt -->
       <div
-        class="animate__animated animate__fadeIn animate__delay-1s"
-        id="movie-prompt"
-      >
+        class="animate__animated animate__fadeIn animate__delay-1s section scrollspy"
+        id="movie-prompt">
         <div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text movie-prompt-box">
@@ -38,15 +37,15 @@
         </div>
       </div>
       <!-- div for movie selection -->
-      <div class="animate__animated" id="movie-search">
-        <div class="col s6 m3">
+      <div class="animate__animated section scrollspy" id="movie-search">
+        <div class="col s6 m4">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title"><strong>Search the movie</strong></span>
               <p>What kind of movie do you want?</p>
               <select>
                 <option value="" disabled selected>Choose your option</option>
-                <option value="1">Action 🤼‍♂️"</option>
+                <option value="1">Action <span>🤼‍♂️</span></option>
                 <option value="2">Adventure 🏕</option>
                 <option value="3">Comedy 🤹🏽</option>
                 <option value="4">Horror 🤡</option>
@@ -62,8 +61,40 @@
         </div>
       </div>
 
+      <!-- movie collection display -->
+      <div class="carousel carousel-slider center animate__animated" id="movie-collection-3">
+        <div class="carousel-item white-text movie-div" id="movie-1" href="#one!">
+          <img id="movie-poster-1" src="./Assets/Jurassic Park.webp">
+          <div class="movieandbutton">
+            <div class="movieinfo">
+              <h2 id="movie-title">Movie Title</h2>
+              <p class="white-text" >Genre: <span id="movie-genre"></span></p>
+              <p class="white-text" >Release Date: <span id="release-date"></span></p>
+              <p class="white-text">Overview: <span id"movie-intro>This is what the movie is about.</span></p>
+              <br>
+            </div>
+            <a class="btn waves-effect white grey-text darken-text-2">Select</a>
+          </div>
+          <div class="video-div">
+            <iframe id="movie-trailer" width="560" height="315" src="https://www.youtube.com/embed/O-b2VfmmbyA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="carousel-item amber white-text" href="#two!">
+          <h2>Second Panel</h2>
+          <p class="white-text">This is your second panel</p>
+<br>
+          <a class="btn waves-effect white grey-text darken-text-2 center">Select</a>
+        </div>
+        <div class="carousel-item blue white-text" href="#four!">
+          <h2>Fourth Panel</h2>
+          <p class="white-text">This is your fourth panel</p>
+          <br>
+          <a class="btn waves-effect white grey-text darken-text-2 center">Select</a>
+        </div>
+      </div>
+
       <!-- div for drink prompt box -->
-      <div class="animate__animated" id="drink-prompt">
+      <div class="animate__animated section scrollspy" id="drink-prompt">
         <div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text movie-prompt-box">
@@ -72,7 +103,8 @@
             </div>
             <div class="card-action">
               <button class="drink-confirm btn">Yes!</button>
-              <button class="drinkcancel btn">
+              <button class="drinkcancel btn">Maybe a nonalcohol-drink</button>
+              <button class="nonalcohol-drink btn">
                 No, I'm boycoting alcohol.
               </button>
             </div>
@@ -81,7 +113,7 @@
       </div>
 
       <!-- div for drink selection box -->
-      <div class="animate__animated" id="drink-search">
+      <div class="animate__animated section scrollspy" id="drink-search">
         <div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text" id="drink-search">
@@ -100,7 +132,7 @@
               </select>
             </div>
             <div class="card-action">
-              <button class="drinkdropbtn btn">Mix away</button>
+              <button class="drinkbtn btn">Mix away</button>
             </div>
           </div>
         </div>
@@ -108,13 +140,15 @@
 
       <!-- Cards with movie picture and info -->
 
-      <div class="row animate__animated" id="drink-card">
+      <div class="row animate__animated section scrollspy" id="drink-card">
         <div class="col s6 m3">
           <div class="card">
             <div class="card-image">
               <img id="drink-img" src="./Assets/office.jpeg" />
               <span class="card-title" id="drink-title">Drink Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+              <a class="btn-floating halfway-fab waves-effect waves-light red"
+                ><i class="material-icons">+</i></a
+              >
             </div>
             <div class="card-content">
               <p id="Ingredient1">xx</p>
@@ -126,12 +160,12 @@
         </div>
       </div>
     </div>
-
-    <!-- materialize script -->
+    
     <script src="javascript.js"></script>
     <script src="./Assets/css-script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- Materialize link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
