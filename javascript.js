@@ -11,9 +11,6 @@ var movieImageEl = document.querySelector("#movie-poster");
 var movieGenre = document.querySelector("#movie-genre");
 console.log(movieImageEl);
 
-var movieTitle = "";
-var movieSummary = "";
-
 
 var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
