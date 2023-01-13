@@ -81,7 +81,7 @@ getDrinkApi();
           drinkImage.setAttribute("src", drink.drinks[0].strDrinkThumb)
           drinkNameLoc.textContent(drink.drinks[0].strDrink);
           drinkRecipeLoc.textContent(drink.drinks[0].strInstructions);
-          for (var = i; i < drink.drinks[0].strIngredient; i++) {
+          for (var i=0; i < drink.drinks[0].strIngredient; i++) {
             var drinkMeasure = drink.drinks[0].strMeasure + i+1;
             var drinkIngr = drink.drinks[0].strIngredient + i+1;
             drinkMeasure.append(drinkIngr);
