@@ -85,7 +85,6 @@ var getDrinkBtn = document.querySelector(".drinkbtn");
 
 getDrinkApi();
 
-
 function printDrink(drink) {
   var drinkImageLoc = document.querySelector("#drink-img");
   var drinkNameLoc = document.querySelector("#drink-title");

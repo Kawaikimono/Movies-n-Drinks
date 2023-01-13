@@ -31,7 +31,6 @@
         </div>
       </div>
 
-
       <!-- div for initial movie prompt -->
       <div
         class="animate__animated animate__fadeIn animate__delay-1s section scrollspy"
@@ -44,7 +43,7 @@
             </div>
             <div class="card-action">
               <button class="movie-confirm btn">Yes!</button>
-              <button class="movie-cancel btn">I have a movie idea</button>
+              <button class="movie-cancel btn" id="movie-cancel">I have a movie idea</button>
             </div>
           </div>
         </div>
@@ -82,8 +81,6 @@
           <div id="movie-img">
            <img id="movie-poster" src="">
           </div>
-
-
           <div class="movieandbutton">
             <div class="movieinfo">
               <h2 id="movie-title">Movie Title</h2>
@@ -92,22 +89,47 @@
               <p class="white-text">Overview: <span id="movie-intro">This is what the movie is about.</span></p>
               <br>
             </div>
-            <a class="btn waves-effect white grey-text darken-text-2">Select</a>
+            <button class="btn waves-effect white grey-text darken-text-2 movie-choice">Select</button>
           </div>
           <div class="video-div">
-            <iframe id="movie-trailer" width="560" height="315" src="https://www.youtube.com/embed/O-b2VfmmbyA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe></iframe>
           </div>
         </div>
-        <div class="carousel-item amber white-text" href="#two!">
-          <h2>Second Panel</h2>
-          <p class="white-text">This is your second panel</p>
-          <a class="btn waves-effect white grey-text darken-text-2 center">Select</a>
+        <div class="carousel-item white-text movie-div" id="movie-2" href="#two!">
+          <div id="movie-img">
+            <img id="movie-poster" src="">
+          </div>
+          <div class="movieandbutton">
+            <div class="movieinfo">
+               <h2 id="movie-title">Movie Title</h2>
+               <p class="white-text" >Genre: <span id="movie-genre"></span></p>
+               <p class="white-text" >Release Date: <span id="release-date"></span></p>
+               <p class="white-text">Overview: <span id"movie-intro>This is what the movie is about.</span></p>
+               <br>
+            </div>
+            <button class="btn waves-effect white grey-text darken-text-2 movie-choice">Select</button>
+          </div>
+          <div class="video-div">
+            <iframe></iframe>
+          </div>
         </div>
-        <div class="carousel-item blue white-text" href="#four!">
-          <h2>Fourth Panel</h2>
-          <p class="white-text">This is your fourth panel</p>
-          <br>
-          <a class="btn waves-effect white grey-text darken-text-2 center">Select</a>
+        <div class="carousel-item white-text movie-div" id="movie-2" href="#three!">
+          <div id="movie-img">
+            <img id="movie-poster" src="">
+          </div>
+          <div class="movieandbutton">
+            <div class="movieinfo">
+               <h2 id="movie-title">Movie Title</h2>
+               <p class="white-text" >Genre: <span id="movie-genre"></span></p>
+               <p class="white-text" >Release Date: <span id="release-date"></span></p>
+               <p class="white-text">Overview: <span id"movie-intro>This is what the movie is about.</span></p>
+               <br>
+            </div>
+            <button class="btn waves-effect white grey-text darken-text-2 movie-choice">Select</button>
+          </div>
+          <div class="video-div">
+            <iframe></iframe>
+          </div>
         </div>
       </div>
 
@@ -116,7 +138,7 @@
         <div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text movie-prompt-box">
-              <span class="card-title"><strong>Movie is ready</strong></span>
+              <span class="card-title"><strong>Maybe a drink</strong></span>
               <p>A drink would make the night.</p>
             </div>
             <div class="card-action">

@@ -37,6 +37,14 @@
     display: flex;
 }
 
+#movie-2{
+    display: flex;
+}
+
+#movie-3{
+    display: flex;
+}
+
 #movie-poster-1{
     width:20%;
     padding:20px;
@@ -85,5 +93,9 @@
     height: max-content;
     align-items: center;
     justify-content: space-around;
+}
+
+#movie-collection-3{
+    background-color: var(--backgroundcolor);
 }
 
