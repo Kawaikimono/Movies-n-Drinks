@@ -71,3 +71,19 @@
     align-items: stretch;
     padding-bottom: 15px;
 }
+
+.movieposter-display{
+    display:flex;
+    justify-content: space-between;
+    width:40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.display{
+    height: max-content;
+    align-items: center;
+    justify-content: space-around;
+}
+
