@@ -19,6 +19,19 @@
   </head>
   <body>
     <div class="main-space">
+      <!-- movie display -->
+      <div class="display">
+        <div class="carousel center movieposter-display">
+          <a class="carousel-item" href="#one!"><img src="./Assets/Jurassic Park.webp"></a>
+          <a class="carousel-item" href="#two!"><img src="./Assets/The Shining.webp"></a>
+          <a class="carousel-item" href="#three!"><img src="./Assets/sub-buzz-5998-1648431146-15.webp"</a>
+          <a class="carousel-item" href="#one!"><img src="./Assets/Jurassic Park.webp"></a>
+          <a class="carousel-item" href="#two!"><img src="./Assets/The Shining.webp"></a>
+          <a class="carousel-item" href="#one!"><img src="./Assets/Jurassic Park.webp"></a>
+        </div>
+      </div>
+
+
       <!-- div for initial movie prompt -->
       <div
         class="animate__animated animate__fadeIn animate__delay-1s section scrollspy"
@@ -64,13 +77,19 @@
       <!-- movie collection display -->
       <div class="carousel carousel-slider center animate__animated" id="movie-collection-3">
         <div class="carousel-item white-text movie-div" id="movie-1" href="#one!">
-          <img id="movie-poster-1" src="./Assets/Jurassic Park.webp">
+
+
+          <div id="movie-img">
+           <img id="movie-poster" src="">
+          </div>
+
+
           <div class="movieandbutton">
             <div class="movieinfo">
               <h2 id="movie-title">Movie Title</h2>
               <p class="white-text" >Genre: <span id="movie-genre"></span></p>
               <p class="white-text" >Release Date: <span id="release-date"></span></p>
-              <p class="white-text">Overview: <span id"movie-intro>This is what the movie is about.</span></p>
+              <p class="white-text">Overview: <span id="movie-intro">This is what the movie is about.</span></p>
               <br>
             </div>
             <a class="btn waves-effect white grey-text darken-text-2">Select</a>
@@ -82,7 +101,6 @@
         <div class="carousel-item amber white-text" href="#two!">
           <h2>Second Panel</h2>
           <p class="white-text">This is your second panel</p>
-<br>
           <a class="btn waves-effect white grey-text darken-text-2 center">Select</a>
         </div>
         <div class="carousel-item blue white-text" href="#four!">
@@ -150,9 +168,7 @@
               >
             </div>
             <div class="card-content">
-              <p id="Ingredient1">xx</p>
-              <p id="Ingredient2">xx</p>
-              <p id="Ingredient3">xx</p>
+              <ul id="ingredients"></ul>
               <p id="Drink-Instruction">xx</p>
             </div>
           </div>
