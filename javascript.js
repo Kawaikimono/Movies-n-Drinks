@@ -40,7 +40,6 @@ function getMovieApi() {
     movieImageEl.src = randomPosterLink
     movieGenre.textContent = genreID
     }
-    // render movieTitle & movieSummary to page. Static
 
 
       })
