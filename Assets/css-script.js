@@ -17,7 +17,7 @@ var drinkSearchDiv = document.querySelector("#drink-search");
 var drinkCardDiv = document.querySelector("#drink-card");
 
 movieSearchDiv.hidden = true;
-movieSearchResultDiv.style.opacity = "0" 
+// movieSearchResultDiv.style.opacity = "0" 
 drinkPromptDiv.hidden = true;
 drinkSearchDiv.hidden = true;
 drinkCardDiv.hidden = true;
@@ -54,7 +54,6 @@ function moviesearch() {
 
 //select movie to prompt drink
 var movieChoiceBtn = document.querySelector(".movie-choice");
-console.log(movieChoiceBtn);
 movieChoiceBtn.addEventListener("click", promptdrink);
 function promptdrink() {
   if (event.target.matches("button")) {

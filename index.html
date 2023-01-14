@@ -22,19 +22,32 @@
       <!-- movie display -->
       <div class="display">
         <div class="carousel center movieposter-display">
-          <a class="carousel-item" href="#one!"><img src="./Assets/Jurassic Park.webp"></a>
-          <a class="carousel-item" href="#two!"><img src="./Assets/The Shining.webp"></a>
-          <a class="carousel-item" href="#three!"><img src="./Assets/sub-buzz-5998-1648431146-15.webp"></a>
-          <a class="carousel-item" href="#one!"><img src="./Assets/Jurassic Park.webp"></a>
-          <a class="carousel-item" href="#two!"><img src="./Assets/The Shining.webp"></a>
-          <a class="carousel-item" href="#one!"><img src="./Assets/Jurassic Park.webp"></a>
+          <a class="carousel-item" href="#one!"
+            ><img src="./Assets/Jurassic Park.webp"
+          /></a>
+          <a class="carousel-item" href="#two!"
+            ><img src="./Assets/The Shining.webp"
+          /></a>
+          <a class="carousel-item" href="#three!"
+            ><img src="./Assets/sub-buzz-5998-1648431146-15.webp"
+          /></a>
+          <a class="carousel-item" href="#one!"
+            ><img src="./Assets/Jurassic Park.webp"
+          /></a>
+          <a class="carousel-item" href="#two!"
+            ><img src="./Assets/The Shining.webp"
+          /></a>
+          <a class="carousel-item" href="#one!"
+            ><img src="./Assets/Jurassic Park.webp"
+          /></a>
         </div>
       </div>
 
       <!-- div for initial movie prompt -->
       <div
         class="animate__animated animate__fadeIn animate__delay-1s section scrollspy"
-        id="movie-prompt">
+        id="movie-prompt"
+      >
         <div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text movie-prompt-box">
@@ -43,7 +56,9 @@
             </div>
             <div class="card-action">
               <button class="movie-confirm btn">Yes!</button>
-              <button class="movie-cancel btn" id="movie-cancel">I have a movie idea</button>
+              <button class="movie-cancel btn" id="movie-cancel">
+                I have a movie idea
+              </button>
             </div>
           </div>
         </div>
@@ -56,7 +71,9 @@
               <span class="card-title"><strong>Search the movie</strong></span>
               <p>What kind of movie do you want?</p>
               <select id="movie-id">
-                <option value="" disabled selected>Choose your movie genre</option>
+                <option value="" disabled selected>
+                  Choose your movie genre
+                </option>
                 <option value="28">Action 🤼‍♂️"</option>
                 <option value="12">Adventure 🏕</option>
                 <option value="35">Comedy 🤹🏽</option>
@@ -74,64 +91,127 @@
       </div>
 
       <!-- movie collection display -->
-    <div id="movie-collection-3">
-      <div class="carousel carousel-slider center animate__animated">
-        <div class="carousel-item white-text movie-div" id="movie-1" href="#one!">
-          <div id="movie-img">
-           <img id="movie-poster" src="">
-          </div>
-          <div class="movieandbutton">
-            <div class="movieinfo">
-              <h2 id="movie-title">Movie Title</h2>
-              <p class="white-text" >Genre: <span id="movie-genre"></span></p>
-              <p class="white-text" >Release Date: <span id="release-date"></span></p>
-              <p class="white-text">Overview: <span id="movie-intro">This is what the movie is about.</span></p>
-              <br>
+      <div id="movie-collection-3">
+        <div class="carousel carousel-slider center animate__animated">
+          <div
+            class="carousel-item white-text movie-div"
+            id="movie-1"
+            href="#one!"
+          >
+            <div id="movie-img">
+              <img id="movie-poster" src="" />
             </div>
-            <button class="btn waves-effect white grey-text darken-text-2 movie-choice">Select</button>
-          </div>
-          <div class="video-div">
-            <iframe></iframe>
-          </div>
-        </div>
-        <div class="carousel-item white-text movie-div" id="movie-2" href="#two!">
-          <div id="movie-img">
-            <img id="movie-poster" src="">
-          </div>
-          <div class="movieandbutton">
-            <div class="movieinfo">
-               <h2 id="movie-title">Movie Title</h2>
-               <p class="white-text" >Genre: <span id="movie-genre"></span></p>
-               <p class="white-text" >Release Date: <span id="release-date"></span></p>
-               <p class="white-text">Overview: <span id="movie-intro">This is what the movie is about.</span></p>
-               <br>
+            <div class="movieandbutton">
+              <div class="movieinfo">
+                <h2 id="movie-title">Movie Title</h2>
+                <p class="white-text">Genre: <span id="movie-genre"></span></p>
+                <p class="white-text">
+                  Release Date: <span id="release-date"></span>
+                </p>
+                <p class="white-text">
+                  Overview:
+                  <span id="movie-intro">This is what the movie is about.</span>
+                </p>
+              </div>
+              <button
+                class="btn waves-effect white grey-text darken-text-2 movie-choice"
+              >
+                Select
+              </button>
             </div>
-            <button class="btn waves-effect white grey-text darken-text-2 movie-choice">Select</button>
-          </div>
-          <div class="video-div">
-            <iframe></iframe>
-          </div>
-        </div>
-        <div class="carousel-item white-text movie-div" id="movie-3" href="#three!">
-          <div id="movie-img">
-            <img id="movie-poster" src="">
-          </div>
-          <div class="movieandbutton">
-            <div class="movieinfo">
-               <h2 id="movie-title">Movie Title</h2>
-               <p class="white-text" >Genre: <span id="movie-genre"></span></p>
-               <p class="white-text" >Release Date: <span id="release-date"></span></p>
-               <p class="white-text">Overview: <span id="movie-intro">This is what the movie is about.</span></p>
-               <br>
+            <div class="video-div">
+              <iframe
+                id="movie-trailer-1"
+                width="560"
+                height="315"
+                src=""
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
-            <button class="btn waves-effect white grey-text darken-text-2 movie-choice">Select</button>
           </div>
-          <div class="video-div">
-            <iframe></iframe>
+          <div
+            class="carousel-item white-text movie-div"
+            id="movie-2"
+            href="#two!"
+          >
+            <div id="movie-img">
+              <img id="movie-poster" src="" />
+            </div>
+            <div class="movieandbutton">
+              <div class="movieinfo">
+                <h2 id="movie-title">Movie Title</h2>
+                <p class="white-text">Genre: <span id="movie-genre"></span></p>
+                <p class="white-text">
+                  Release Date: <span id="release-date"></span>
+                </p>
+                <p class="white-text">
+                  Overview:
+                  <span id="movie-intro">This is what the movie is about.</span>
+                </p>
+              </div>
+              <button
+                class="btn waves-effect white grey-text darken-text-2 movie-choice"
+              >
+                Select
+              </button>
+            </div>
+            <div class="video-div">
+              <iframe
+                id="movie-trailer-2"
+                width="560"
+                height="315"
+                src=""
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div
+            class="carousel-item white-text movie-div"
+            id="movie-3"
+            href="#three!"
+          >
+            <div id="movie-img">
+              <img id="movie-poster" src="" />
+            </div>
+            <div class="movieandbutton">
+              <div class="movieinfo">
+                <h2 id="movie-title">Movie Title</h2>
+                <p class="white-text">Genre: <span id="movie-genre"></span></p>
+                <p class="white-text">
+                  Release Date: <span id="release-date"></span>
+                </p>
+                <p class="white-text">
+                  Overview:
+                  <span id="movie-intro">This is what the movie is about.</span>
+                </p>
+              </div>
+              <button
+                class="btn waves-effect white grey-text darken-text-2 movie-choice"
+              >
+                Select
+              </button>
+            </div>
+            <div class="video-div">
+              <iframe
+                id="movie-trailer-3"
+                width="560"
+                height="315"
+                src=""
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <!-- div for drink prompt box -->
       <div class="animate__animated section scrollspy" id="drink-prompt">
@@ -197,7 +277,7 @@
         </div>
       </div>
     </div>
-    
+
     <script src="javascript.js"></script>
     <script src="./Assets/css-script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
