@@ -4,7 +4,7 @@ var movieactionbtn = document.getElementById("movieactionbtn");
 var drinkId = 0;
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
-
+var moiveReleaseDate = document.getElementById("release-date");
 var movieTitle = document.querySelector ("#movie-title");
 var movieSummary = document.querySelector ("#movie-intro");
 var movieImageEl = document.querySelector("#movie-poster");
@@ -12,10 +12,11 @@ var movieGenre = document.querySelector("#movie-genre");
 console.log(movieImageEl);
 
 
-var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
+
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 
 function getMovieApi() {
+  var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
   console.log(genreID.value);
   fetch(movieUrl)
 
@@ -27,15 +28,16 @@ function getMovieApi() {
     for (let i = 0; i < 3; i++) {
 
     var randomMovie = data.results[Math.floor(Math.random()*data.results.length)]
-    console.log(randomMovie.title)
+    console.log(randomMovie)
     console.log(randomMovie.overview)
     console.log(randomMovie.poster_path)
     console.log(moviePosterURL+randomMovie.poster_path)
     movieTitle.textContent = randomMovie.title
+    moiveReleaseDate.textContent = randomMovie.release_date
     movieSummary.textContent = randomMovie.overview
     var randomPosterLink = moviePosterURL+randomMovie.poster_path
     movieImageEl.src = randomPosterLink
-    movieGenre.textContent = genreID
+    movieGenre.textContent = genreID.options[genreID.selectedIndex].textContent
     }
 
 
@@ -107,4 +109,3 @@ function printDrink(drink) {
     drinkIngrLoc.append(ingredientList);
   }
 }
-
