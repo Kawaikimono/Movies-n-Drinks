@@ -103,14 +103,24 @@
             </div>
             <div class="movieandbutton">
               <div class="movieinfo">
-                <h2 id="movie-title">Movie Title</h2>
-                <p class="white-text">Genre: <span id="movie-genre"></span></p>
+                <h2 id="movie-title"><strong>Movie Title</strong></h2>
                 <p class="white-text">
-                  Release Date: <span id="release-date"></span>
+                  <strong>Genre:</strong><span id="movie-genre"></span>
                 </p>
                 <p class="white-text">
-                  Overview:
+                  <strong>Release Date: </strong>
+                  <span id="release-date"></span>
+                </p>
+                <p class="white-text">
+                  <strog>Overview:</strog>
                   <span id="movie-intro">This is what the movie is about.</span>
+                </p>
+
+                <p>
+                  <strong>Movie Link: </strong
+                  ><a href="" id="movie-link" target="_blank"
+                    >Click here to watch</a
+                  >
                 </p>
               </div>
               <button
@@ -142,14 +152,24 @@
             </div>
             <div class="movieandbutton">
               <div class="movieinfo">
-                <h2 id="movie-title">Movie Title</h2>
-                <p class="white-text">Genre: <span id="movie-genre"></span></p>
+                <h2 id="movie-title"><strong>Movie Title</strong></h2>
                 <p class="white-text">
-                  Release Date: <span id="release-date"></span>
+                  <strong>Genre:</strong><span id="movie-genre"></span>
                 </p>
                 <p class="white-text">
-                  Overview:
+                  <strong>Release Date: </strong>
+                  <span id="release-date"></span>
+                </p>
+                <p class="white-text">
+                  <strog>Overview:</strog>
                   <span id="movie-intro">This is what the movie is about.</span>
+                </p>
+
+                <p>
+                  <strong>Movie Link: </strong
+                  ><a href="" id="movie-link" target="_blank"
+                    >Click here to watch</a
+                  >
                 </p>
               </div>
               <button
@@ -181,14 +201,24 @@
             </div>
             <div class="movieandbutton">
               <div class="movieinfo">
-                <h2 id="movie-title">Movie Title</h2>
-                <p class="white-text">Genre: <span id="movie-genre"></span></p>
+                <h2 id="movie-title"><strong>Movie Title</strong></h2>
                 <p class="white-text">
-                  Release Date: <span id="release-date"></span>
+                  <strong>Genre:</strong><span id="movie-genre"></span>
                 </p>
                 <p class="white-text">
-                  Overview:
+                  <strong>Release Date: </strong>
+                  <span id="release-date"></span>
+                </p>
+                <p class="white-text">
+                  <strog>Overview:</strog>
                   <span id="movie-intro">This is what the movie is about.</span>
+                </p>
+
+                <p>
+                  <strong>Movie Link: </strong
+                  ><a href="" id="movie-link" target="_blank"
+                    >Click here to watch</a
+                  >
                 </p>
               </div>
               <button
@@ -258,24 +288,33 @@
       </div>
 
       <!-- Cards with movie picture and info -->
-
-      <div class="row animate__animated section scrollspy" id="drink-card">
-        <div class="col s6 m3">
-          <div class="card">
-            <div class="card-image">
-              <img id="drink-img" src="./Assets/office.jpeg" />
-              <span class="card-title" id="drink-title">Drink Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"
-                ><i class="material-icons">+</i></a
-              >
-            </div>
-            <div class="card-content">
-              <ul id="ingredients"></ul>
-              <p id="Drink-Instruction">xx</p>
-            </div>
+        <div id="movieanddrink">
+          <!-- movie card -->
+          <div class="animate__animated section scrollspy card movieanddrinkcard" id="movie-card">
+                <div class="card-image">
+                  <img id="card-movie-img" src="./Assets/office.jpeg" />
+                </div>
+                <div class="card-content">
+                  <p>
+                    Movie Link:
+                    <a href="" id="card-movie-link" target="_blank"
+                      >Click here to watch</a
+                    >
+                  </p>
+                </div>
+          </div>
+          <!-- drink card -->
+          <div class="animate__animated section scrollspy card movieanddrinkcard" id="drink-card">
+                <div class="card-image">
+                  <img id="drink-img" src="./Assets/office.jpeg" />
+                  <span class="card-title" id="drink-title">Drink Title</span>
+                </div>
+                <div class="card-content">
+                  <ul id="ingredients"></ul>
+                  <p id="Drink-Instruction">xx</p>
+                </div>
           </div>
         </div>
-      </div>
     </div>
 
     <script src="javascript.js"></script>
