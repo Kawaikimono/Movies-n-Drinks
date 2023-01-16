@@ -15,7 +15,7 @@ var movieTrailer1 = document.querySelector("#movie-trailer-1");
 var movieTrailer2 = document.querySelector("#movie-trailer-2");
 var movieTrailer3 = document.getElementById("movie-trailer-3");
 var movieTrailer = [];
-var h;
+var h,j;
 
 movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
 
@@ -75,7 +75,7 @@ https://api.themoviedb.org/3/movie/${movieid}/videos?api_key=${key}&language=en-
 }
 
 //get movie provider link;
-function getMovieLink(movieid, key) {
+function getMovieLink(movieid, key, j) {
   var movieLinkURL = `https://api.themoviedb.org/3/movie/${movieid}/watch/providers?api_key=${key}`;
   fetch(movieLinkURL)
     .then(function (response) {
@@ -86,7 +86,6 @@ function getMovieLink(movieid, key) {
       if (data.results.US !== {}) {
         movieLink[j].href = data.results.US.link;
       }
-      j++;
     });
 }
 

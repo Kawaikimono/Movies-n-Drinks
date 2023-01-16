@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies-n-Drinks</title>
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap"
+      rel="stylesheet"
+    />
     <!-- materialize link -->
     <link
       rel="stylesheet"
@@ -17,6 +24,9 @@
     />
     <link rel="stylesheet" href="./Assets/styel.css" />
   </head>
+  <header>
+    <img src="./Assets/MOVIE ON AIR.png" />
+  </header>
   <body>
     <div class="main-space">
       <!-- movie display -->
@@ -41,6 +51,7 @@
             ><img src="./Assets/Jurassic Park.webp"
           /></a>
         </div>
+        <!-- <p class="title-p" id="title-right">MOVIES <br>ON AIR</p> -->
       </div>
 
       <!-- div for initial movie prompt -->
@@ -49,15 +60,15 @@
         id="movie-prompt"
       >
         <div class="col s6 m3">
-          <div class="card blue-grey darken-1">
+          <div class="card">
             <div class="card-content white-text movie-prompt-box">
               <span class="card-title"><strong>Movie Time!</strong></span>
               <p>Want to pick a movie to watch?</p>
             </div>
-            <div class="card-action">
-              <button class="movie-confirm btn">Yes!</button>
-              <button class="movie-cancel btn" id="movie-cancel">
-                I have a movie idea
+            <div class="card-choice">
+              <button class="movie-confirm mbtn">Yes!</button>
+              <button class="movie-cancel mbtn" id="movie-cancel">
+                I already have a movie idea
               </button>
             </div>
           </div>
@@ -66,9 +77,11 @@
       <!-- div for movie selection -->
       <div class="animate__animated section scrollspy" id="movie-search">
         <div class="col s6 m4">
-          <div class="card blue-grey darken-1">
+          <div class="card">
             <div class="card-content white-text">
-              <span class="card-title"><strong>What kind of movie do you want?</strong></span>
+              <span class="card-title"
+                ><strong>What kind of movie do you want?</strong></span
+              >
               <!-- <p>What kind of movie do you want?</p> -->
               <select id="movie-id">
                 <option value="" disabled selected>
@@ -83,15 +96,17 @@
                 <option value="53">Thriller 🧟</option>
               </select>
             </div>
-            <div class="card-action">
-              <button class="btn" id="movieactionbtn">Lights 💡 Camera 🎥 Action 🎬</button>
+            <div class="card-choice">
+              <button class="mbtn" id="movieactionbtn">
+                Lights 💡 Camera 🎥 Action 🎬
+              </button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- movie collection display -->
-      <div id="movie-collection-3">
+      <div class="animate__animated" id="movie-collection-3">
         <div class="carousel carousel-slider center animate__animated">
           <div
             class="carousel-item white-text movie-div"
@@ -124,7 +139,7 @@
                 </p>
               </div>
               <button
-                class="btn waves-effect white grey-text darken-text-2 movie-choice"
+                class="mbtn waves-effect white grey-text darken-text-2 movie-choice"
               >
                 Select
               </button>
@@ -173,7 +188,7 @@
                 </p>
               </div>
               <button
-                class="btn waves-effect white grey-text darken-text-2 movie-choice"
+                class="mbtn waves-effect white grey-text darken-text-2 movie-choice"
               >
                 Select
               </button>
@@ -222,7 +237,7 @@
                 </p>
               </div>
               <button
-                class="btn waves-effect white grey-text darken-text-2 movie-choice"
+                class="mbtn waves-effect white grey-text darken-text-2 movie-choice"
               >
                 Select
               </button>
@@ -246,17 +261,14 @@
       <!-- div for drink prompt box -->
       <div class="animate__animated section scrollspy" id="drink-prompt">
         <div class="col s6 m3">
-          <div class="card blue-grey darken-1">
+          <div class="card">
             <div class="card-content white-text movie-prompt-box">
               <span class="card-title"><strong>Maybe a drink</strong></span>
               <p>A drink would make the night.</p>
             </div>
-            <div class="card-action">
-              <button class="drink-confirm btn">Yes!</button>
-              <button class="drinkcancel btn">Maybe a nonalcohol-drink</button>
-              <button class="nonalcohol-drink btn">
-                No, I'm boycoting alcohol.
-              </button>
+            <div class="card-choice">
+              <button class="drink-confirm mbtn">Yes!</button>
+              <button class="drinkcancel mbtn">Maybe a nonalcohol-drink</button>
             </div>
           </div>
         </div>
@@ -265,7 +277,7 @@
       <!-- div for drink selection box -->
       <div class="animate__animated section scrollspy" id="drink-search">
         <div class="col s6 m3">
-          <div class="card blue-grey darken-1">
+          <div class="card">
             <div class="card-content white-text" id="drink-search">
               <span class="card-title"><strong>Search a drink</strong></span>
               <p>What kind of alcohol do you prefer?</p>
@@ -280,41 +292,51 @@
                 <option value="bourbon">Bourbon</option>
               </select>
             </div>
-            <div class="card-action">
-              <button class="drinkbtn btn">Mix away</button>
+            <div class="card-choice">
+              <button class="drinkbtn mbtn">Mix away</button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Cards with movie picture and info -->
-        <div id="movieanddrink">
-          <!-- movie card -->
-          <div class="animate__animated section scrollspy card movieanddrinkcard" id="movie-card">
-                <div class="card-image">
-                  <img id="card-movie-img" src="./Assets/office.jpeg" />
-                </div>
-                <div class="card-content">
-                  <p>
-                    Movie Link:
-                    <a href="" id="card-movie-link" target="_blank"
-                      >Click here to watch</a
-                    >
-                  </p>
-                </div>
+      <div id="movieanddrink">
+
+        <div>
+          <p class="final-tag animate__animated" id="final-tag"></p>
+        </div>
+        <!-- movie card -->
+        <div class="animate__animated movieanddrinkcard" id="movie-card">
+          <div class="card-image">
+            <img id="card-movie-img" src="./Assets/office.jpeg" />
           </div>
-          <!-- drink card -->
-          <div class="animate__animated section scrollspy card movieanddrinkcard" id="drink-card">
-                <div class="card-image">
-                  <img id="drink-img" src="./Assets/office.jpeg" />
-                  <span class="card-title" id="drink-title">Drink Title</span>
-                </div>
-                <div class="card-content">
-                  <ul id="ingredients"></ul>
-                  <p id="Drink-Instruction">xx</p>
-                </div>
+          <div class="movie-card-content">
+            <p>
+              Movie Link:
+              <a href="" id="card-movie-link" target="_blank"
+                >Click here to watch</a>
+            </p>
           </div>
         </div>
+        <!-- drink card -->
+        <div
+          class="animate__animated section scrollspy movieanddrinkcard"
+          id="drink-card"
+        >
+          <div class="card-image">
+            <img id="drink-img" src="./Assets/office.jpeg" />
+          </div>
+          <div class="drink-card-content">
+            <p ID="drink-title"><strong>Drink Title</Title></strong></p>
+            <ul id="ingredients"></ul>
+            <p id="Drink-Instruction">xx</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <br />
+        <br />
+      </div>
     </div>
 
     <script src="javascript.js"></script>
@@ -324,4 +346,7 @@
     <!-- Materialize link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
+  <footer>
+    <p>💡Presented by Group 6</p>
+  </footer>
 </html>

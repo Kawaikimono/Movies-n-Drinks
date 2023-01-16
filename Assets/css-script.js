@@ -49,6 +49,7 @@ function promptdrink() {
     movieSearchResultDiv.classList.add("animate__fadeOut");
     drinkPromptDiv.classList.add("animate__fadeIn");
     movieSearchResultDiv.style.opacity = "0";
+    movieSearchResultDiv.classList.add("animate__fadeOut");
     drinkPromptDiv.hidden = false;
   }
 }
@@ -65,6 +66,7 @@ function drinksearch() {
 }
 
 //drink search btn to show movie & drink card
+var finalTagEl = document.querySelector("#final-tag")
 var drinkBtn = document.querySelector(".drinkbtn");
 drinkBtn.addEventListener("click", drinkcard);
 
@@ -75,6 +77,8 @@ function drinkcard() {
     drinkCardDiv.classList.add("animate__fadeIn");
     movieCardDiv.hidden = false;
     drinkCardDiv.hidden = false;
+    finalTagEl.classList.add("animate__lightSpeedInLeft");
+    finalTagEl.textContent = "Here is the recipe of your wonderful night."
   }
 }
 
