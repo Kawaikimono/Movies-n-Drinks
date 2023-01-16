@@ -165,7 +165,7 @@ function getDrinkApi() {
     })
     .then(theDrink);
 }
-
+getDrinkApi();
 movieactionbtn.addEventListener("click", getMovieApi);
 
 var getDrinkBtn = document.querySelector(".drinkbtn");
@@ -178,11 +178,15 @@ function printDrink(drink) {
   drinkImageLoc.setAttribute("src", drink.strDrinkThumb);
   drinkNameLoc.textContent = drink.strDrink;
   drinkRecipeLoc.textContent = drink.strInstructions;
-  for (var i = 1; i < drink.strIngredient; i++) {
-    var ingredient = drink[`strIngredient${i+1}`];
-    var measure = drink[`strMeasure${i+1}`];
-    
-  
+  for (var i = 1; i < 16; i++) {
+    var ingredient = drink[`strIngredient${i}`];
+    var measure = drink[`strMeasure${i}`];
+    if (ingredient == null) {
+      return;
+    }
+    if (measure ==null) {
+      return;
+    }
     var ingredientList = document.createElement("li");
     ingredientList.textContent = measure + " " + ingredient;
     drinkIngrLoc.append(ingredientList);
