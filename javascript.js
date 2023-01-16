@@ -1,7 +1,7 @@
 var movieactionbtn = document.getElementById("movieactionbtn");
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
-
+var drink;
 var movieTitle = document.querySelectorAll("#movie-title");
 var movieSummary = document.querySelectorAll("#movie-intro");
 var movieImageEl = document.querySelectorAll("#movie-poster");
@@ -21,17 +21,15 @@ movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
 
 var movieID;
 
-var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
-
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 var apiKey = "c21251ae5e77e4922c5ef1b09e36611a";
 var movieid, key;
 
 function getMovieApi() {
-
   console.log(genreID.value);
   var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
-
+  
+  console.log(movieUrl)
   fetch(movieUrl)
     .then(function (response) {
       return response.json();
@@ -39,12 +37,10 @@ function getMovieApi() {
     .then(function (data) {
 
       //generate three number to render three movie infor to the page
-      h = 0;
-      j = 0;
+  
       for (var i = 0; i < 3; i++) {
-        var randomMovie =
-          data.results[Math.floor(Math.random() * data.results.length)];
-        console.log(randomMovie);
+        var randomMovie =data.results[Math.floor(Math.random() * data.results.length)];
+        console.log(randomMovie)
         movieTitle[i].textContent = randomMovie.title;
         movieSummary[i].textContent = randomMovie.overview;
         var randomPosterLink = moviePosterURL + randomMovie.poster_path;
@@ -52,16 +48,17 @@ function getMovieApi() {
         movieGenre[i].textContent = genreID.value;
         movieID = randomMovie.id;
         movieReleaseDate[i].textContent = randomMovie.release_date;
-        // console.log(randomMovie.homepage)
-        getMovieTrailer(movieID, apiKey);
-        getMovieLink(movieID, apiKey);
+        console.log(movieTitle[i])
+        console.log(movieID)
+        getMovieTrailer(movieID,apiKey,i);
+        getMovieLink(movieID, apiKey,i);
 
       }
     });
 }
 
 //get video link by movie ID
-function getMovieTrailer(movieid, key) {
+function getMovieTrailer(movieid,key,h){
   var movieTrailerURL = `
 https://api.themoviedb.org/3/movie/${movieid}/videos?api_key=${key}&language=en-US`;
   fetch(movieTrailerURL)
@@ -161,19 +158,21 @@ function printDrink(drink) {
   drinkImageLoc.setAttribute("src", drink.strDrinkThumb);
   drinkNameLoc.textContent = drink.strDrink;
   drinkRecipeLoc.textContent = drink.strInstructions;
-  for (var i = 1; i < 16; i++) {
-    var ingredient = drink[`strIngredient${i}`];
-    var measure = drink[`strMeasure${i}`];
-    if (ingredient == null) {
-      return;
-    }
-    if (measure == null) {
-      return;
-    }
+  for (var i = 1; i < drink.strIngredient; i++) {
+    var ingredient = drink[`strIngredient${i+1}`];
+    var measure = drink[`strMeasure${i+1}`];
+    
+  
     var ingredientList = document.createElement("li");
     ingredientList.textContent = measure + " " + ingredient;
     drinkIngrLoc.append(ingredientList);
   }
 
 }
+
+getDrinkBtn.addEventListener("click", function () {
+  getDrinkApi();
+ 
+  });
+
 
