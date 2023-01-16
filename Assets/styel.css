@@ -211,8 +211,20 @@ justify-content: space-between;
     font-size: 200%;
     color:white;
     padding:10px; 
-    transform: rotate(30deg);
 }
+
+.float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    z-index: 50;
+    font-size: 300%;
+  }
 
 footer {
   padding: 10px;
@@ -229,3 +241,13 @@ footer p {
 footer p:hover {
   text-shadow: #fc0 1px 0 10px;
 }
+
+/* .test{
+  font-family: 'Covered By Your Grace', cursive;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 300%;
+  transform: rotate(-20deg);
+  padding:50px;
+} */

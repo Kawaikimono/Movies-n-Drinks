@@ -24,31 +24,57 @@
     />
     <link rel="stylesheet" href="./Assets/styel.css" />
   </head>
+  
   <header>
-    <img src="./Assets/MOVIE ON AIR.png" />
+    <img  id="header-img" src="./Assets/MOVIE ON AIR.png" />
   </header>
   <body>
+    <!-- side bar -->
     <div class="main-space">
+      <div class="side-bar">
+        <ul id="slide-out" class="sidenav">
+          <li>
+            <div class="user-view">
+              <div class="background">
+                <img src="./Assets/moonlight-backgroung.jpeg" />
+              </div>
+              <a href="#user"><img class="circle" src="./Assets/profilepic.png" /></a>
+              <a href="#name"><span class="white-text name">Movie and Drink</span></a>
+              <a href="#email"
+                ><span class="white-text email">movieanddrink@gmail.com</span></a>
+            </div>
+          </li>
+          <li>
+            <a href="#movie-search">Movie Genre</a>
+            <a href="#drink-prompt"></i>Drink Option</a>
+            <a href="#drink-search"></i>Pick your posion</a>
+            <a href="#drink-search"></i>Wonderful night recipe</a>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger float animate__animated" id="sidebar-indicator"
+          >⇦</a>
+      </div>
       <!-- movie display -->
       <div class="display">
         <div class="carousel center movieposter-display">
           <a class="carousel-item" href="#one!"
-            ><img class = "movie-poster-top" src="./Assets/Jurassic Park.webp"
+            ><img class="movie-poster-top" src="./Assets/Jurassic Park.webp"
           /></a>
           <a class="carousel-item" href="#two!"
-            ><img class = "movie-poster-top" src="./Assets/The Shining.webp"
+            ><img class="movie-poster-top" src="./Assets/The Shining.webp"
           /></a>
           <a class="carousel-item" href="#three!"
-            ><img class = "movie-poster-top"src="./Assets/sub-buzz-5998-1648431146-15.webp"
+            ><img
+              class="movie-poster-top"
+              src="./Assets/sub-buzz-5998-1648431146-15.webp"
           /></a>
           <a class="carousel-item" href="#one!"
-            ><img class = "movie-poster-top" src="./Assets/Jurassic Park.webp"
+            ><img class="movie-poster-top" src="./Assets/Jurassic Park.webp"
           /></a>
           <a class="carousel-item" href="#two!"
-            ><img class = "movie-poster-top" src="./Assets/The Shining.webp"
+            ><img class="movie-poster-top" src="./Assets/The Shining.webp"
           /></a>
           <a class="carousel-item" href="#one!"
-            ><img class = "movie-poster-top" src="./Assets/Jurassic Park.webp"
+            ><img class="movie-poster-top" src="./Assets/Jurassic Park.webp"
           /></a>
         </div>
         <!-- <p class="title-p" id="title-right">MOVIES <br>ON AIR</p> -->
@@ -131,8 +157,6 @@
                   <span id="movie-intro">This is what the movie is about.</span>
                 </p>
 
-
-
                 <p>
                   <strong>Movie Link: </strong
                   ><a href="" id="movie-link" target="_blank"
@@ -207,7 +231,6 @@
                 allowfullscreen
               ></iframe>
             </div>
-            
           </div>
           <div
             class="carousel-item white-text movie-div"
@@ -271,7 +294,8 @@
             </div>
             <div class="card-choice">
               <button class="drink-confirm mbtn">Yes!</button>
-              <button class="drinkcancel mbtn">Maybe a nonalcohol-drink</button>
+              <button class="drink-nonalcohol mbtn">Maybe a nonalcohol-drink</button>
+              <button class="drinkcancel mbtn">No drink for today</button>
             </div>
           </div>
         </div>
@@ -304,7 +328,6 @@
 
       <!-- Cards with movie picture and info -->
       <div id="movieanddrink">
-
         <div>
           <p class="final-tag animate__animated" id="final-tag"></p>
         </div>
@@ -317,7 +340,8 @@
             <p>
               Movie Link:
               <a href="" id="card-movie-link" target="_blank"
-                >Click here to watch</a>
+                >Click here to watch</a
+              >
             </p>
           </div>
         </div>
@@ -330,7 +354,7 @@
             <img id="drink-img" src="./Assets/office.jpeg" />
           </div>
           <div class="drink-card-content">
-            <p ID="drink-title"><strong>Drink Title</Title></strong></p>
+            <p id="drink-title"><strong>Drink Title</strong></p>
             <ul id="ingredients"></ul>
             <p id="Drink-Instruction">xx</p>
           </div>
@@ -341,21 +365,10 @@
         <br />
       </div>
     </div>
-
-    <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s3"><a href="#test1">Test 1</a></li>
-          <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-          <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-          <li class="tab col s3"><a href="#test4">Test 4</a></li>
-        </ul>
-      </div>
-      <div id="test1" class="col s12">Test 1</div>
-      <div id="test2" class="col s12">Test 2</div>
-      <div id="test3" class="col s12">Test 3</div>
-      <div id="test4" class="col s12">Test 4</div>
-    </div>
+<!-- 
+    <div class="test">
+      <p>Movie🎬<br>and<br>Drink🍸</p>
+    </div> -->
 
     <script src="javascript.js"></script>
     <script src="./Assets/css-script.js"></script>
@@ -365,6 +378,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
   <footer>
-    <p>💡Presented by Group 6</p>
+    <p>💡Proundly Presented by Group 6</p>
   </footer>
 </html>
