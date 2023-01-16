@@ -100,7 +100,6 @@ function getMovieLink(movieid, key, j) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.results.US === {});
       if (data.results.US !== {}) {
         movieLink[j].href = data.results.US.link;
       }

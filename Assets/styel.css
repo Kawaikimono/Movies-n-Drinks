@@ -211,7 +211,7 @@ justify-content: space-between;
     font-size: 200%;
     color:white;
     padding:10px; 
-    transform: rotate(-30deg);
+    transform: rotate(30deg);
 }
 
 footer {
