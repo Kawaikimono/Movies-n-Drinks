@@ -7,21 +7,15 @@ var movieSummary = document.querySelectorAll("#movie-intro");
 var movieImageEl = document.querySelectorAll("#movie-poster");
 var movieGenre = document.querySelectorAll("#movie-genre");
 var movieReleaseDate =document.querySelectorAll("#release-date")
-var movieTitle;
-var movieSummary;
-
 var movieTrailer1=document.querySelector("#movie-trailer-1")
 var movieTrailer2=document.querySelector("#movie-trailer-2")
 var movieTrailer3=document.getElementById("movie-trailer-3")
 var movieTrailer = []
-var h;
 
 movieTrailer.push(movieTrailer1,movieTrailer2,movieTrailer3)
 
 var movieID;
 
-var movieTitle = "";
-var movieSummary = "";
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 var apiKey = "c21251ae5e77e4922c5ef1b09e36611a"
 var movieid, key;
@@ -38,9 +32,10 @@ function getMovieApi() {
     })
     .then(function (data) {
       //generate three number to render three movie infor to the page
-      h=0;
+  
       for (var i = 0; i < 3; i++) {
         var randomMovie =data.results[Math.floor(Math.random() * data.results.length)];
+        console.log(randomMovie)
         movieTitle[i].textContent = randomMovie.title;
         movieSummary[i].textContent = randomMovie.overview;
         var randomPosterLink = moviePosterURL + randomMovie.poster_path;
@@ -50,13 +45,13 @@ function getMovieApi() {
         movieReleaseDate[i].textContent = randomMovie.release_date;
         console.log(movieTitle[i])
         console.log(movieID)
-        getMovieTrailer(movieID,apiKey);
+        getMovieTrailer(movieID,apiKey,i);
       }
   })
 }
 
 //get video link by movie ID
-function getMovieTrailer(movieid,key){
+function getMovieTrailer(movieid,key,h){
   var movieTrailerURL = `
 https://api.themoviedb.org/3/movie/${movieid}/videos?api_key=${key}&language=en-US`
   fetch(movieTrailerURL)
