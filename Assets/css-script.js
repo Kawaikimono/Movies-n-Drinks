@@ -1,28 +1,19 @@
 // Materialize Javascript
-
-//movie & drink selection
-
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll("select");
-  var options = document.querySelectorAll("select");
-  var instances = M.FormSelect.init(elems, options);
-});
-
-//hide all the other tabs
 var moviePromptDiv = document.querySelector("#movie-prompt");
 var movieSearchDiv = document.querySelector("#movie-search");
 var movieSearchResultDiv = document.querySelector("#movie-collection-3");
+var movieCardDiv = document.querySelector("#movie-card")
 var drinkPromptDiv = document.querySelector("#drink-prompt");
 var drinkSearchDiv = document.querySelector("#drink-search");
 var drinkCardDiv = document.querySelector("#drink-card");
 
+//hide all div elements at the start
 movieSearchDiv.hidden = true;
-movieSearchResultDiv.hidden = true;
+movieSearchResultDiv.style.opacity = "0" 
+movieCardDiv.hidden = true;
 drinkPromptDiv.hidden = true;
 drinkSearchDiv.hidden = true;
 drinkCardDiv.hidden = true;
-
-var drinkDropdown = document.querySelector(".drink-content");
 
 //movie prompt yes button to show search movie div
 var moviePromptYesBtn = document.querySelector(".movie-confirm");
@@ -32,8 +23,6 @@ function promptmovie() {
   if (event.target.matches("button")) {
     moviePromptDiv.classList.remove("animate__delay-1s");
     moviePromptDiv.classList.add("animate__fadeOut");
-
-    console.log(movieSearchDiv.offsetTop);
     movieSearchDiv.classList.add("animate__fadeIn");
     movieSearchDiv.hidden = false;
     movieSearchDiv.focus();
@@ -46,19 +35,20 @@ movieActionBtn.addEventListener("click", moviesearch);
 function moviesearch() {
   if (event.target.matches("button")) {
     movieSearchDiv.classList.add("animate__fadeOut");
+    movieSearchResultDiv.style.opacity = "1";
     movieSearchResultDiv.classList.add("animate__fadeIn");
-    movieSearchResultDiv.hidden = false;
-  }
+
+}
 }
 
 //select movie to prompt drink
 var movieChoiceBtn = document.querySelector(".movie-choice");
-console.log(movieChoiceBtn);
 movieChoiceBtn.addEventListener("click", promptdrink);
 function promptdrink() {
   if (event.target.matches("button")) {
     movieSearchResultDiv.classList.add("animate__fadeOut");
     drinkPromptDiv.classList.add("animate__fadeIn");
+    movieSearchResultDiv.style.opacity = "0";
     drinkPromptDiv.hidden = false;
   }
 }
@@ -74,14 +64,16 @@ function drinksearch() {
   }
 }
 
-//drink search btn to show drink card
+//drink search btn to show movie & drink card
 var drinkBtn = document.querySelector(".drinkbtn");
 drinkBtn.addEventListener("click", drinkcard);
 
 function drinkcard() {
   if (event.target.matches("button")) {
     drinkSearchDiv.classList.add("animate__fadeOut");
+    movieCardDiv.classList.add("animate__fadeIn");
     drinkCardDiv.classList.add("animate__fadeIn");
+    movieCardDiv.hidden = false;
     drinkCardDiv.hidden = false;
   }
 }
@@ -96,8 +88,15 @@ function nomoviedrinkprompt() {
     drinkPromptDiv.hidden = false;
   }
 }
-// Carousel sliders
 
+//movie & drink selection
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll("select");
+  var options = document.querySelectorAll("select");
+  var instances = M.FormSelect.init(elems, options);
+});
+
+// Carousel sliders
 document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll(".carousel");
   var instance = M.Carousel.init(elems, {
@@ -105,4 +104,4 @@ document.addEventListener("DOMContentLoaded", function () {
     indicators: true,
     numVisible: 5,
   });
-});
+})
