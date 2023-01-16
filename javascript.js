@@ -1,7 +1,4 @@
-// var selectGenreSelected = document.getElementbyId(genredropbtn)
-
 var movieactionbtn = document.getElementById("movieactionbtn");
-var drinkId = 0;
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
 
@@ -25,17 +22,22 @@ movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
 var movieID;
 
 var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
+
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 var apiKey = "c21251ae5e77e4922c5ef1b09e36611a";
 var movieid, key;
 
 function getMovieApi() {
-  // console.log(genreID.value);
+
+  console.log(genreID.value);
+  var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
+
   fetch(movieUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+
       //generate three number to render three movie infor to the page
       h = 0;
       j = 0;
@@ -53,6 +55,7 @@ function getMovieApi() {
         // console.log(randomMovie.homepage)
         getMovieTrailer(movieID, apiKey);
         getMovieLink(movieID, apiKey);
+
       }
     });
 }
@@ -109,6 +112,7 @@ movieChoiceBtn.addEventListener("click", function () {
 var listOfDrinksUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=gin";
 // ${alcohol}
+
 function theDrink(data) {
   var randomDrink = data.drinks[Math.floor(Math.random() * data.drinks.length)];
   var drinkId = randomDrink.idDrink;
@@ -121,7 +125,7 @@ function theDrink(data) {
     })
 
     .then(function (res) {
-      var drink = res.drinks[0];
+      drink = res.drinks[0];
       console.log(drink);
       var drinkName = drink.strDrink;
       console.log(drinkName);
@@ -136,6 +140,8 @@ function theDrink(data) {
 }
 
 function getDrinkApi() {
+  var listOfDrinksUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkAlchol[0].value}`;
+
   fetch(listOfDrinksUrl)
     .then(function (response) {
       return response.json();
@@ -146,8 +152,6 @@ function getDrinkApi() {
 movieactionbtn.addEventListener("click", getMovieApi);
 
 var getDrinkBtn = document.querySelector(".drinkbtn");
-
-getDrinkApi();
 
 function printDrink(drink) {
   var drinkImageLoc = document.querySelector("#drink-img");
@@ -170,4 +174,6 @@ function printDrink(drink) {
     ingredientList.textContent = measure + " " + ingredient;
     drinkIngrLoc.append(ingredientList);
   }
+
 }
+
