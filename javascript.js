@@ -1,6 +1,7 @@
 var movieactionbtn = document.getElementById("movieactionbtn");
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
+
 var drink;
 var movieTitle = document.querySelectorAll("#movie-title");
 var movieSummary = document.querySelectorAll("#movie-intro");
@@ -21,11 +22,13 @@ movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
 
 var movieID;
 
+
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 var apiKey = "c21251ae5e77e4922c5ef1b09e36611a";
 var movieid, key;
 
 function getMovieApi() {
+  var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
   console.log(genreID.value);
   var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
   
@@ -57,6 +60,31 @@ function getMovieApi() {
     });
 }
 
+
+  .then(function (response) {
+    return response.json();
+    
+  }) 
+  .then(function (data) {
+    for (let i = 0; i < 3; i++) {
+
+    var randomMovie = data.results[Math.floor(Math.random()*data.results.length)]
+    console.log(randomMovie)
+    console.log(randomMovie.overview)
+    console.log(randomMovie.poster_path)
+    console.log(moviePosterURL+randomMovie.poster_path)
+    movieTitle.textContent = randomMovie.title
+    moiveReleaseDate.textContent = randomMovie.release_date
+    movieSummary.textContent = randomMovie.overview
+    var randomPosterLink = moviePosterURL+randomMovie.poster_path
+    movieImageEl.src = randomPosterLink
+    movieGenre.textContent = genreID.options[genreID.selectedIndex].textContent
+    }
+
+
+      })
+      };
+
 //get video link by movie ID
 function getMovieTrailer(movieid,key,h){
   var movieTrailerURL = `
@@ -73,6 +101,7 @@ https://api.themoviedb.org/3/movie/${movieid}/videos?api_key=${key}&language=en-
       h++;
     });
 }
+
 
 //get movie provider link;
 function getMovieLink(movieid, key) {
@@ -169,10 +198,3 @@ function printDrink(drink) {
   }
 
 }
-
-getDrinkBtn.addEventListener("click", function () {
-  getDrinkApi();
- 
-  });
-
-
