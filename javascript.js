@@ -21,35 +21,30 @@ var h,j;
 movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
 
 var moviePosterTop = document.querySelectorAll(".movie-poster-top")
-console.log(moviePosterTop)
 nowplayingPosterURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&page=1`
 var movieID;
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 var apiKey = "c21251ae5e77e4922c5ef1b09e36611a";
 var movieid, key;
 
-
+// show latest movie poster
 getMoviePoster()
-
 function getMoviePoster(){
   fetch(nowplayingPosterURL)
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
     for (var p=0; p<6;p++){
       moviePosterTop[p].src=moviePosterURL+data.results[p*2].poster_path
     }
   })
 }
 
+//get movie list generated
 function getMovieApi() {
   var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
-  console.log(genreID.value);
-  var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
   
-  console.log(movieUrl)
   fetch(movieUrl)
     .then(function (response) {
       return response.json();
@@ -60,7 +55,6 @@ function getMovieApi() {
   
       for (var i = 0; i < 3; i++) {
         var randomMovie =data.results[Math.floor(Math.random() * data.results.length)];
-        console.log(randomMovie)
         movieTitle[i].textContent = randomMovie.title;
         movieSummary[i].textContent = randomMovie.overview;
         var randomPosterLink = moviePosterURL + randomMovie.poster_path;
@@ -68,8 +62,6 @@ function getMovieApi() {
         movieGenre[i].textContent = genreID.value;
         movieID = randomMovie.id;
         movieReleaseDate[i].textContent = randomMovie.release_date;
-        console.log(movieTitle[i])
-        console.log(movieID)
         getMovieTrailer(movieID,apiKey,i);
         getMovieLink(movieID, apiKey,i);
 
@@ -125,6 +117,8 @@ movieChoiceBtn.addEventListener("click", function () {
   }
 });
 
+movieactionbtn.addEventListener("click", getMovieApi);
+
   //get drink
 var listOfDrinksUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=gin";
@@ -166,10 +160,6 @@ function getDrinkApi() {
     .then(theDrink);
 }
 
-movieactionbtn.addEventListener("click", getMovieApi);
-
-var getDrinkBtn = document.querySelector(".drinkbtn");
-
 function printDrink(drink) {
   var drinkImageLoc = document.querySelector("#drink-img");
   var drinkNameLoc = document.querySelector("#drink-title");
@@ -181,11 +171,11 @@ function printDrink(drink) {
   for (var i = 1; i < drink.strIngredient; i++) {
     var ingredient = drink[`strIngredient${i+1}`];
     var measure = drink[`strMeasure${i+1}`];
-    
-  
     var ingredientList = document.createElement("li");
     ingredientList.textContent = measure + " " + ingredient;
     drinkIngrLoc.append(ingredientList);
   }
-
 }
+
+var getDrinkBtn = document.querySelector(".drinkbtn");
+getDrinkBtn.addEventListener("click",getDrinkApi)
