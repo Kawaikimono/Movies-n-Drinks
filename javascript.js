@@ -1,6 +1,7 @@
 var movieactionbtn = document.getElementById("movieactionbtn");
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
+
 var drink;
 var movieTitle = document.querySelectorAll("#movie-title");
 var movieSummary = document.querySelectorAll("#movie-intro");
@@ -44,6 +45,7 @@ function getMoviePoster(){
 }
 
 function getMovieApi() {
+  var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
   console.log(genreID.value);
   var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
   
@@ -75,6 +77,7 @@ function getMovieApi() {
     });
 }
 
+
 //get video link by movie ID
 function getMovieTrailer(movieid,key,h){
   var movieTrailerURL = `
@@ -91,6 +94,7 @@ https://api.themoviedb.org/3/movie/${movieid}/videos?api_key=${key}&language=en-
       h++;
     });
 }
+
 
 //get movie provider link;
 function getMovieLink(movieid, key, j) {
@@ -185,10 +189,3 @@ function printDrink(drink) {
   }
 
 }
-
-getDrinkBtn.addEventListener("click", function () {
-  getDrinkApi();
- 
-  });
-
-
