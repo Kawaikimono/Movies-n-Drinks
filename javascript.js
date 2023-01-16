@@ -1,40 +1,117 @@
 var movieactionbtn = document.getElementById("movieactionbtn");
 var genreID = document.getElementById("movie-id");
 var drinkAlchol = document.getElementsByClassName("drink-content");
-var drink;
-var movieTitle = document.querySelector("#movie-title");
-var movieSummary = document.querySelector("#movie-intro");
-var movieImageEl = document.querySelector("#movie-poster");
-var movieGenre = document.querySelector("#movie-genre");
-console.log(movieImageEl);
 
-var movieTitle = "";
-var movieSummary = "";
+var movieTitle = document.querySelectorAll("#movie-title");
+var movieSummary = document.querySelectorAll("#movie-intro");
+var movieImageEl = document.querySelectorAll("#movie-poster");
+var movieGenre = document.querySelectorAll("#movie-genre");
+var movieReleaseDate = document.querySelectorAll("#release-date");
+var movieLink = document.querySelectorAll("#movie-link");
+var movieLinkCard = document.querySelector("#selected-movie-link");
+var movieImgCard = document.querySelector("#card-movie-img");
+
+var movieTrailer1 = document.querySelector("#movie-trailer-1");
+var movieTrailer2 = document.querySelector("#movie-trailer-2");
+var movieTrailer3 = document.getElementById("movie-trailer-3");
+var movieTrailer = [];
+var h;
+
+movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
+
+var movieID;
+
+var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
+
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
+var apiKey = "c21251ae5e77e4922c5ef1b09e36611a";
+var movieid, key;
 
 function getMovieApi() {
+
   console.log(genreID.value);
   var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
+
   fetch(movieUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      for (let i = 0; i < 3; i++) {
+
+      //generate three number to render three movie infor to the page
+      h = 0;
+      j = 0;
+      for (var i = 0; i < 3; i++) {
         var randomMovie =
           data.results[Math.floor(Math.random() * data.results.length)];
-        console.log(randomMovie.title);
-        console.log(randomMovie.overview);
-        console.log(randomMovie.poster_path);
-        console.log(moviePosterURL + randomMovie.poster_path);
-        movieTitle.textContent = randomMovie.title;
-        movieSummary.textContent = randomMovie.overview;
+        console.log(randomMovie);
+        movieTitle[i].textContent = randomMovie.title;
+        movieSummary[i].textContent = randomMovie.overview;
         var randomPosterLink = moviePosterURL + randomMovie.poster_path;
-        movieImageEl.src = randomPosterLink;
-        movieGenre.textContent = genreID;
+        movieImageEl[i].src = randomPosterLink;
+        movieGenre[i].textContent = genreID.value;
+        movieID = randomMovie.id;
+        movieReleaseDate[i].textContent = randomMovie.release_date;
+        // console.log(randomMovie.homepage)
+        getMovieTrailer(movieID, apiKey);
+        getMovieLink(movieID, apiKey);
+
       }
     });
 }
+
+//get video link by movie ID
+function getMovieTrailer(movieid, key) {
+  var movieTrailerURL = `
+https://api.themoviedb.org/3/movie/${movieid}/videos?api_key=${key}&language=en-US`;
+  fetch(movieTrailerURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(h)
+      // console.log(movieTrailer[h])
+      movieTrailer[h].src =
+        "https://www.youtube.com/embed/" + data.results[0].key;
+      h++;
+    });
+}
+
+//get movie provider link;
+function getMovieLink(movieid, key) {
+  var movieLinkURL = `https://api.themoviedb.org/3/movie/${movieid}/watch/providers?api_key=${key}`;
+  fetch(movieLinkURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.results.US === {});
+      if (data.results.US !== {}) {
+        movieLink[j].href = data.results.US.link;
+      }
+      j++;
+    });
+}
+
+//When click on the select movie button, get the movie img and render to the movie card
+var movieChoiceBtn = document.querySelector(".movie-choice");
+var movieImgCard = document.querySelector("#card-movie-img");
+var movieTitleCard = document.querySelector("#card-movie-title");
+var movieLinkCard = document.querySelector("#card-movie-link")
+movieChoiceBtn.addEventListener("click", function () {
+  if (event.target.matches("button")) {
+    var selectedMovieImg =
+      event.target.parentElement.previousElementSibling.children[0].src;
+    movieImgCard.src = selectedMovieImg;
+    var selectedMovieLink = event.target.parentElement.children[0].children[4].children[1].href
+    movieLinkCard.href = selectedMovieLink
+  }
+});
+
+  //get drink
+var listOfDrinksUrl =
+  "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=gin";
+// ${alcohol}
 
 function theDrink(data) {
   var randomDrink = data.drinks[Math.floor(Math.random() * data.drinks.length)];
@@ -100,23 +177,3 @@ function printDrink(drink) {
 
 }
 
-movieactionbtn.addEventListener("click", getMovieApi);
-
-getDrinkBtn.addEventListener("click", function () {
-  getDrinkApi();
-  var drinkImageLoc = document.querySelector("#drink-img");
-  var drinkNameLoc = document.querySelector("#drink-title");
-  var drinkIngrLoc = document.querySelector("#Ingredients");
-  var drinkRecipeLoc = document.querySelector("#Drink-Instruction");
-  drinkImageLoc.setAttribute("src", drink.strDrinkThumb);
-  drinkNameLoc.textContent(drink.strDrink);
-  drinkRecipeLoc.textContent(drink.strInstructions);
-  for (var i = 0; i < drink.strIngredient; i++) {
-    var drinkMeasure = drink.strMeasure + i + 1;
-    var drinkIngr = drink.strIngredient + i + 1;
-    drinkMeasure.append(drinkIngr);
-    var ingredientList = document.createElement("li");
-    ingredientList.textContent(drinkMeasure);
-    drinkIngrLoc = ingredientList;
-  }
-});
