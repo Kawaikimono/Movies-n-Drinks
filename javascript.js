@@ -16,16 +16,33 @@ var movieTrailer1 = document.querySelector("#movie-trailer-1");
 var movieTrailer2 = document.querySelector("#movie-trailer-2");
 var movieTrailer3 = document.getElementById("movie-trailer-3");
 var movieTrailer = [];
-var h;
+var h,j;
 
 movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
 
+var moviePosterTop = document.querySelectorAll(".movie-poster-top")
+console.log(moviePosterTop)
+nowplayingPosterURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&page=1`
 var movieID;
-
-
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 var apiKey = "c21251ae5e77e4922c5ef1b09e36611a";
 var movieid, key;
+
+
+getMoviePoster()
+
+function getMoviePoster(){
+  fetch(nowplayingPosterURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    for (var p=0; p<6;p++){
+      moviePosterTop[p].src=moviePosterURL+data.results[p*2].poster_path
+    }
+  })
+}
 
 function getMovieApi() {
   var movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&with_genres=${genreID.value}`;
@@ -61,30 +78,6 @@ function getMovieApi() {
 }
 
 
-  .then(function (response) {
-    return response.json();
-    
-  }) 
-  .then(function (data) {
-    for (let i = 0; i < 3; i++) {
-
-    var randomMovie = data.results[Math.floor(Math.random()*data.results.length)]
-    console.log(randomMovie)
-    console.log(randomMovie.overview)
-    console.log(randomMovie.poster_path)
-    console.log(moviePosterURL+randomMovie.poster_path)
-    movieTitle.textContent = randomMovie.title
-    moiveReleaseDate.textContent = randomMovie.release_date
-    movieSummary.textContent = randomMovie.overview
-    var randomPosterLink = moviePosterURL+randomMovie.poster_path
-    movieImageEl.src = randomPosterLink
-    movieGenre.textContent = genreID.options[genreID.selectedIndex].textContent
-    }
-
-
-      })
-      };
-
 //get video link by movie ID
 function getMovieTrailer(movieid,key,h){
   var movieTrailerURL = `
@@ -104,18 +97,16 @@ https://api.themoviedb.org/3/movie/${movieid}/videos?api_key=${key}&language=en-
 
 
 //get movie provider link;
-function getMovieLink(movieid, key) {
+function getMovieLink(movieid, key, j) {
   var movieLinkURL = `https://api.themoviedb.org/3/movie/${movieid}/watch/providers?api_key=${key}`;
   fetch(movieLinkURL)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.results.US === {});
       if (data.results.US !== {}) {
         movieLink[j].href = data.results.US.link;
       }
-      j++;
     });
 }
 
