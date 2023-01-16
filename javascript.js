@@ -19,11 +19,29 @@ var h,j;
 
 movieTrailer.push(movieTrailer1, movieTrailer2, movieTrailer3);
 
+var moviePosterTop = document.querySelectorAll(".movie-poster-top")
+console.log(moviePosterTop)
+nowplayingPosterURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=c21251ae5e77e4922c5ef1b09e36611a&language=en-US&page=1`
 var movieID;
-
 var moviePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 var apiKey = "c21251ae5e77e4922c5ef1b09e36611a";
 var movieid, key;
+
+
+getMoviePoster()
+
+function getMoviePoster(){
+  fetch(nowplayingPosterURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    for (var p=0; p<6;p++){
+      moviePosterTop[p].src=moviePosterURL+data.results[p*2].poster_path
+    }
+  })
+}
 
 function getMovieApi() {
   console.log(genreID.value);
