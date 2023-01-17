@@ -103,11 +103,29 @@ function getMovieLink(movieid, key, j) {
 }
 
 //When click on the select movie button, get the movie img and render to the movie card
-var movieChoiceBtn = document.querySelector(".movie-choice");
+var movieChoiceBtn = document.querySelectorAll(".movie-choice");
 var movieImgCard = document.querySelector("#card-movie-img");
 var movieTitleCard = document.querySelector("#card-movie-title");
 var movieLinkCard = document.querySelector("#card-movie-link")
-movieChoiceBtn.addEventListener("click", function () {
+movieChoiceBtn[0].addEventListener("click", function () {
+  if (event.target.matches("button")) {
+    var selectedMovieImg =
+      event.target.parentElement.previousElementSibling.children[0].src;
+    movieImgCard.src = selectedMovieImg;
+    var selectedMovieLink = event.target.parentElement.children[0].children[4].children[1].href
+    movieLinkCard.href = selectedMovieLink
+  }
+});
+movieChoiceBtn[1].addEventListener("click", function () {
+  if (event.target.matches("button")) {
+    var selectedMovieImg =
+      event.target.parentElement.previousElementSibling.children[0].src;
+    movieImgCard.src = selectedMovieImg;
+    var selectedMovieLink = event.target.parentElement.children[0].children[4].children[1].href
+    movieLinkCard.href = selectedMovieLink
+  }
+});
+movieChoiceBtn[2].addEventListener("click", function () {
   if (event.target.matches("button")) {
     var selectedMovieImg =
       event.target.parentElement.previousElementSibling.children[0].src;

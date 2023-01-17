@@ -46,8 +46,10 @@ function moviesearch() {
 }
 
 //select movie to prompt drink
-var movieChoiceBtn = document.querySelector(".movie-choice");
-movieChoiceBtn.addEventListener("click", promptdrink);
+var movieChoiceBtn = document.querySelectorAll(".movie-choice");
+movieChoiceBtn[0].addEventListener("click", promptdrink);
+movieChoiceBtn[1].addEventListener("click", promptdrink);
+movieChoiceBtn[2].addEventListener("click", promptdrink);
 function promptdrink() {
   if (event.target.matches("button")) {
     // movieSearchResultDiv.classList.add("animate__fadeOut");
@@ -121,6 +123,7 @@ function showdrink() {
     gameNight.src = "./Assets/gameNight.jpg"
     finalTagEl.textContent = "Game Night App comming soon!"
   } else {
+    drinkSearchDiv.hidden = true
     movieCardDiv.classList.add("animate__fadeIn");
     movieCardDiv.hidden = false;
     sideBarBtn.classList.add("animate__fadeIn");
