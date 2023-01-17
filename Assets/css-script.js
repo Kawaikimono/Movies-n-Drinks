@@ -43,8 +43,10 @@ function moviesearch() {
 }
 
 //select movie to prompt drink
-var movieChoiceBtn = document.querySelector(".movie-choice");
-movieChoiceBtn.addEventListener("click", promptdrink);
+var movieChoiceBtn = document.querySelectorAll(".movie-choice");
+movieChoiceBtn[0].addEventListener("click", promptdrink);
+movieChoiceBtn[1].addEventListener("click", promptdrink);
+movieChoiceBtn[2].addEventListener("click", promptdrink);
 function promptdrink() {
   if (event.target.matches("button")) {
     // movieSearchResultDiv.classList.add("animate__fadeOut");
@@ -106,6 +108,7 @@ drinkCancelBtn.addEventListener("click", showdrink);
 function showdrink() {
   movieCardDiv.classList.add("animate__fadeIn");
   movieCardDiv.hidden = false;
+  drinkCardDiv.hidden = true;
   sideBarBtn.classList.add("animate__fadeIn");
   sideBarBtn.hidden = false;
   finalTagEl.textContent = "Here is the recipe of your wonderful night.";
