@@ -8,6 +8,7 @@ var drinkSearchDiv = document.querySelector("#drink-search");
 var drinkCardDiv = document.querySelector("#drink-card");
 var sideBarBtn = document.querySelector("#sidebar-indicator");
 
+
 //hide all div elements at the start
 movieSearchDiv.hidden = true;
 movieSearchResultDiv.style.opacity = "0";
@@ -106,6 +107,7 @@ function nomoviedrinkprompt() {
 var drinkCancelBtn = document.querySelector(".drinkcancel");
 drinkCancelBtn.addEventListener("click", showdrink);
 function showdrink() {
+  drinkSearchDiv.hidden = true;
   movieCardDiv.classList.add("animate__fadeIn");
   movieCardDiv.hidden = false;
   drinkCardDiv.hidden = true;
