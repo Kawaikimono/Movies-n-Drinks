@@ -59,7 +59,7 @@ function getMovieApi() {
         movieSummary[i].textContent = randomMovie.overview;
         var randomPosterLink = moviePosterURL + randomMovie.poster_path;
         movieImageEl[i].src = randomPosterLink;
-        movieGenre[i].textContent = genreID.value;
+        // movieGenre[i].textContent = genreID.value;
         movieID = randomMovie.id;
         movieReleaseDate[i].textContent = randomMovie.release_date;
         getMovieTrailer(movieID,apiKey,i);

@@ -7,6 +7,8 @@ var drinkPromptDiv = document.querySelector("#drink-prompt");
 var drinkSearchDiv = document.querySelector("#drink-search");
 var drinkCardDiv = document.querySelector("#drink-card");
 var sideBarBtn = document.querySelector("#sidebar-indicator");
+var noMoiveValue, movieChoiceValue;
+var gameNight = document.querySelector("#gameNight");
 
 //hide all div elements at the start
 movieSearchDiv.hidden = true;
@@ -48,6 +50,7 @@ movieChoiceBtn[0].addEventListener("click", promptdrink);
 movieChoiceBtn[1].addEventListener("click", promptdrink);
 movieChoiceBtn[2].addEventListener("click", promptdrink);
 function promptdrink() {
+  movieChoiceValue = 6;
   if (event.target.matches("button")) {
     // movieSearchResultDiv.classList.add("animate__fadeOut");
     drinkPromptDiv.classList.add("animate__fadeIn");
@@ -73,22 +76,59 @@ var finalTagEl = document.querySelector("#final-tag");
 var drinkBtn = document.querySelector(".drinkbtn");
 drinkBtn.addEventListener("click", drinkcard);
 
-// nonalcoholic on drink prompt btn to show movie & drink card
-var finalTagEl = document.querySelector("#final-tag");
-var nonAlcBtn = document.querySelector(".drink-nonalcohol");
-nonAlcBtn.addEventListener("click", drinkcard);
-
 function drinkcard() {
   if (event.target.matches("button")) {
     // drinkSearchDiv.classList.add("animate__fadeOut");
-    movieCardDiv.classList.add("animate__fadeIn");
-    drinkCardDiv.classList.add("animate__fadeIn");
-    movieCardDiv.hidden = false;
-    drinkCardDiv.hidden = false;
-    finalTagEl.classList.add("animate__lightSpeedInLeft");
-    sideBarBtn.classList.add("animate__fadeIn");
-    sideBarBtn.hidden = false;
-    finalTagEl.textContent = "Here is the recipe of your wonderful night.";
+    if (noMoiveValue === 5) {
+      drinkCardDiv.hidden = false;
+      drinkCardDiv.classList.add("animate__fadeIn");
+      finalTagEl.classList.add("animate__lightSpeedInLeft");
+      sideBarBtn.classList.add("animate__fadeIn");
+      sideBarBtn.hidden = false;
+      finalTagEl.textContent = "Here is the recipe of your wonderful night.";
+    }
+    if (movieChoiceValue === 6) {
+      movieCardDiv.classList.add("animate__fadeIn");
+      drinkCardDiv.classList.add("animate__fadeIn");
+      movieCardDiv.hidden = false;
+      drinkCardDiv.hidden = false;
+      finalTagEl.classList.add("animate__lightSpeedInLeft");
+      sideBarBtn.classList.add("animate__fadeIn");
+      sideBarBtn.hidden = false;
+      finalTagEl.textContent = "Here is the recipe of your wonderful night.";
+    }
+  }
+}
+
+// nonalcoholic on drink prompt btn to show movie & drink card
+var finalTagEl = document.querySelector("#final-tag");
+var nonAlcBtn = document.querySelector(".drink-nonalcohol");
+nonAlcBtn.addEventListener("click", nonalcdrinkcard);
+
+function nonalcdrinkcard() {
+  if (event.target.matches("button")) {
+    // drinkSearchDiv.classList.add("animate__fadeOut");
+    drinkSearchDiv.hidden = true;
+    gameNight.hidden = true;
+    if (noMoiveValue === 5) {
+      drinkCardDiv.hidden = false;
+      drinkCardDiv.classList.add("animate__fadeIn");
+      finalTagEl.classList.add("animate__lightSpeedInLeft");
+      sideBarBtn.classList.add("animate__fadeIn");
+      sideBarBtn.hidden = false;
+      finalTagEl.textContent = "Here is the recipe of your wonderful night.";
+    }
+
+    if (movieChoiceValue === 6) {
+      movieCardDiv.classList.add("animate__fadeIn");
+      drinkCardDiv.classList.add("animate__fadeIn");
+      movieCardDiv.hidden = false;
+      drinkCardDiv.hidden = false;
+      finalTagEl.classList.add("animate__lightSpeedInLeft");
+      sideBarBtn.classList.add("animate__fadeIn");
+      sideBarBtn.hidden = false;
+      finalTagEl.textContent = "Here is the recipe of your wonderful night.";
+    }
   }
 }
 
@@ -96,7 +136,11 @@ function drinkcard() {
 var movieCancelBtn = document.querySelector("#movie-cancel");
 movieCancelBtn.addEventListener("click", nomoviedrinkprompt);
 function nomoviedrinkprompt() {
+  movieSearchDiv.hidden = true;
+  movieSearchResultDiv.style.opacity = "0";
+  movieCardDiv.hidden = true;
   if (event.target.matches("button")) {
+    noMoiveValue = 5;
     // moviePromptDiv.classList.add("animate__fadeOut");
     drinkPromptDiv.classList.add("animate__fadeIn");
     drinkPromptDiv.hidden = false;
@@ -106,12 +150,19 @@ function nomoviedrinkprompt() {
 var drinkCancelBtn = document.querySelector(".drinkcancel");
 drinkCancelBtn.addEventListener("click", showdrink);
 function showdrink() {
-  movieCardDiv.classList.add("animate__fadeIn");
-  movieCardDiv.hidden = false;
+  drinkSearchDiv.hidden = true;
   drinkCardDiv.hidden = true;
-  sideBarBtn.classList.add("animate__fadeIn");
-  sideBarBtn.hidden = false;
-  finalTagEl.textContent = "Here is the recipe of your wonderful night.";
+  if (noMoiveValue === 5) {
+    gameNight.src = "./Assets/gameNight.jpg";
+    finalTagEl.textContent = "Game Night App comming soon!";
+  } else {
+    drinkSearchDiv.hidden = true;
+    movieCardDiv.classList.add("animate__fadeIn");
+    movieCardDiv.hidden = false;
+    sideBarBtn.classList.add("animate__fadeIn");
+    sideBarBtn.hidden = false;
+    finalTagEl.textContent = "Here is the recipe of your wonderful night.";
+  }
 }
 
 //movie & drink selection
