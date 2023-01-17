@@ -71,6 +71,11 @@ var finalTagEl = document.querySelector("#final-tag");
 var drinkBtn = document.querySelector(".drinkbtn");
 drinkBtn.addEventListener("click", drinkcard);
 
+// nonalcoholic on drink prompt btn to show movie & drink card
+var finalTagEl = document.querySelector("#final-tag");
+var nonAlcBtn = document.querySelector(".drink-nonalcohol");
+nonAlcBtn.addEventListener("click", drinkcard);
+
 function drinkcard() {
   if (event.target.matches("button")) {
     // drinkSearchDiv.classList.add("animate__fadeOut");

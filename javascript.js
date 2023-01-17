@@ -138,8 +138,6 @@ function theDrink(data) {
     .then(function (res) {
       drink = res.drinks[0];
       console.log(drink);
-      var drinkName = drink.strDrink;
-      console.log(drinkName);
       printDrink(drink);
       // to add to the page at drink.drinks[0]:
       // strDrink
@@ -163,6 +161,19 @@ function getDrinkApi() {
 var getDrinkBtn = document.querySelector(".drinkbtn");
 getDrinkBtn.addEventListener("click", getDrinkApi);
 
+function getNonAlcApi() {
+  var listOfNonAlcUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`;
+
+  fetch(listOfNonAlcUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(theDrink);
+}
+
+var getNonAlcBtn = document.querySelector(".drink-nonalcohol");
+getNonAlcBtn.addEventListener("click", getNonAlcApi);
+
 function printDrink(drink) {
   var drinkImageLoc = document.querySelector("#drink-img");
   var drinkNameLoc = document.querySelector("#drink-title");
@@ -184,5 +195,4 @@ function printDrink(drink) {
     ingredientList.textContent = measure + " " + ingredient;
     drinkIngrLoc.append(ingredientList);
   }
-
 }
