@@ -242,7 +242,12 @@ footer p:hover {
   text-shadow: #fc0 1px 0 10px;
 }
 
-.test{
+#gameNight{
+  /* width: ; */
+  height: 500px;
+}
+
+/* .test{
   font-family: 'Covered By Your Grace', cursive;
   background-color: #000;
   color: #fff;
